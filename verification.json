@@ -1,0 +1,80 @@
+{
+  "version": "0.1.0-progress.2",
+  "release_stage": "progress",
+  "minimum_workflow_status": "pass",
+  "tests": [
+    {
+      "id": "installed_payload_identity",
+      "status": "pass"
+    },
+    {
+      "id": "packaged_setup_payload_verification",
+      "status": "pass"
+    },
+    {
+      "id": "extracted_payload_identity",
+      "status": "pass"
+    },
+    {
+      "id": "driver_device_open",
+      "status": "pass"
+    },
+    {
+      "id": "driver_accepts_current_state",
+      "status": "pass"
+    },
+    {
+      "id": "actual_packaged_payload_window",
+      "status": "pass"
+    },
+    {
+      "id": "manual_next_enabled",
+      "status": "pass"
+    },
+    {
+      "id": "manual_rotation_persisted",
+      "status": "pass"
+    },
+    {
+      "id": "manual_rotation_display",
+      "status": "pass"
+    },
+    {
+      "id": "window_capture",
+      "status": "pass"
+    },
+    {
+      "id": "reset_state",
+      "status": "pass"
+    },
+    {
+      "id": "reset_baseline_display",
+      "status": "pass"
+    },
+    {
+      "id": "series_size",
+      "status": "pass"
+    },
+    {
+      "id": "baseline_repeat_count",
+      "status": "pass"
+    }
+  ],
+  "driver_state_restored": true,
+  "app_state_restored": true,
+  "physical_input_measurement_verified": false,
+  "isolated_install_boot_remove_verified": false,
+  "source_snapshot_complete": false,
+  "limitation_codes": [
+    "PHYSICAL_INPUT_MEASUREMENT_UNVERIFIED",
+    "ISOLATED_INSTALL_BOOT_REMOVE_UNVERIFIED",
+    "NATIVE_SOURCE_UNAVAILABLE",
+    "ORIGINAL_SIGNING_KEY_UNAVAILABLE"
+  ],
+  "sha256": {
+    "source_snapshot": "b28394932be9736c4ea33023bb11a80d742bcd3c5befa77a82b20f0106665cd8",
+    "executable": "92373845b79a732f3e9bf812b0e840097a8752d2a5b797eee49984cc7e9ae0be",
+    "package": "53a64d051fcbc9e0da1b4db69f65273339c71ab2cff1b22b4454a1c78e074b19",
+    "public_files": "deb120dd83239ddd4e72d8fbfa797287ac4d953a5c2f5fc6c0cc7508e374b8e0"
+  }
+}

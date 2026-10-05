@@ -1,0 +1,6 @@
+**/bin/
+**/obj/
+.private/
+tests/artifacts/
+*.pfx
+*.p12

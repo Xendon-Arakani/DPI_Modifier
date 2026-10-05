@@ -1,0 +1,337 @@
+[
+  {
+    "path": "Build-Release.ps1",
+    "sha256": "f3700bd2d91dc27c5470994226b92fad1b862fb6106d031b19efc500af7374cf",
+    "bytes": 5825
+  },
+  {
+    "path": "dependencies.json",
+    "sha256": "407a45ab6680a2d148cac25c875b9d99d73742f8df174c0942959a56744cd1e1",
+    "bytes": 1297
+  },
+  {
+    "path": "Directory.Build.props",
+    "sha256": "e5064b53c0c0da7f68aa6273bd035a249c5dc28e1df7d0a2aaee18d2439279d6",
+    "bytes": 358
+  },
+  {
+    "path": "global.json",
+    "sha256": "77ba214cb467ed3cc248d6f36c81558aff4b89f5532e76a467410d410d0302a9",
+    "bytes": 74
+  },
+  {
+    "path": "provenance.json",
+    "sha256": "ceb1dd8e76088bc468af1b3b5a0f08edca1f38fe253f326aa1b3e47c9de07d76",
+    "bytes": 624
+  },
+  {
+    "path": "release-status.json",
+    "sha256": "fcd5ebf865ef4d20ff37445d3b3f1812595ba6cd6ca04dbda038ffbcb9260113",
+    "bytes": 899
+  },
+  {
+    "path": "requirements.json",
+    "sha256": "41ae6bee2561c910d75f2732c4c5b23ddd532399e90c172a7bf9b72bce07cb34",
+    "bytes": 497
+  },
+  {
+    "path": "src/Dpi/app.ico",
+    "sha256": "323e8991ce1bca5bcc7db4e00cf619e597ced98f34c04b3300a9195a1cb034c3",
+    "bytes": 35588
+  },
+  {
+    "path": "src/Dpi/app.manifest",
+    "sha256": "67e09c6aa3f03de47c2b25d0b22862466d0a5f36e52969731044cc8e9138213e",
+    "bytes": 412
+  },
+  {
+    "path": "src/Dpi/DPI.csproj",
+    "sha256": "39e1481702690e7277fe07fb10d1516cb96da0bfa52115364af647229e689aec",
+    "bytes": 835
+  },
+  {
+    "path": "src/Dpi/Dpi.Icon",
+    "sha256": "323e8991ce1bca5bcc7db4e00cf619e597ced98f34c04b3300a9195a1cb034c3",
+    "bytes": 35588
+  },
+  {
+    "path": "src/Dpi/Dpi/AppState.cs",
+    "sha256": "c5ed2c32f96901b96d71f0ce370c50f249795692a19bdcc7b8119af6539008b5",
+    "bytes": 1636
+  },
+  {
+    "path": "src/Dpi/Dpi/CountdownOverlay.cs",
+    "sha256": "b646b0b51cad781dd7047ae8b0911a119c737bf8dc3240ca43f574a425565095",
+    "bytes": 6734
+  },
+  {
+    "path": "src/Dpi/Dpi/DeadlineClock.cs",
+    "sha256": "e2987448c52bca44dfda6442fd0392f5cbc37facb05f7fb4d17e6514f8627e6d",
+    "bytes": 1359
+  },
+  {
+    "path": "src/Dpi/Dpi/KernelMouseController.cs",
+    "sha256": "01f350b1b298a67e72f01b6bfe153f8442c857498a3b38aad9bd2c81c3cf0645",
+    "bytes": 1728
+  },
+  {
+    "path": "src/Dpi/Dpi/MainForm.cs",
+    "sha256": "019809c91a94e251b91ea7df3b5b3b7f60e4198f37b4fa96955d6b5d6fb74e2a",
+    "bytes": 23463
+  },
+  {
+    "path": "src/Dpi/Dpi/Program.cs",
+    "sha256": "8c82871cfe7f5773b8463804a5984fcbbb34eb362d8720d0fd3a4b683a36f7fa",
+    "bytes": 970
+  },
+  {
+    "path": "src/Dpi/Dpi/RoundedPanel.cs",
+    "sha256": "e17e6bf7ac922eb5d1afb204e64b1e6f67ba51a0c841800b3432d2230e9015e0",
+    "bytes": 1018
+  },
+  {
+    "path": "src/Dpi/Dpi/SeriesSource.cs",
+    "sha256": "12ddf78f1f7e89c4028bf364c0325ee6c2f2456364795eb75ebb6bd2c026d8a0",
+    "bytes": 2282
+  },
+  {
+    "path": "src/Dpi/Dpi/ValueCard.cs",
+    "sha256": "bddf4d97a01c5c3556507cd253db66f1aa314fb43b86440fbfe2aaf90b91c033",
+    "bytes": 2316
+  },
+  {
+    "path": "src/Dpi/Dpi/WindowLayer.cs",
+    "sha256": "732ec6d0dd4b8748dd9fc772b1fbf8bfc44ff42bf5e80f1f67a74fca52422a4e",
+    "bytes": 1877
+  },
+  {
+    "path": "src/Dpi/packages.lock.json",
+    "sha256": "43a19c0dcd0a2886d61d0ff454fcbd32e7647b40154663b73931e052721126ca",
+    "bytes": 766
+  },
+  {
+    "path": "src/Dpi/Properties/AssemblyInfo.cs",
+    "sha256": "3193e34232b1c8bff91fc8f26ba1bd4eada3a1fe3b669580ea2f3596d71ac854",
+    "bytes": 108
+  },
+  {
+    "path": "src/Launch/app.manifest",
+    "sha256": "144d70c3bb76b60933cbdc524146274383c1958ee7cb234599516f511d5b7f2c",
+    "bytes": 603
+  },
+  {
+    "path": "src/Launch/Dpi.Setup/Launch.cs",
+    "sha256": "473b7c02e548748093d385648a774f60d854670d16fd22ca207130faad7d6910",
+    "bytes": 596
+  },
+  {
+    "path": "src/Launch/Launch.csproj",
+    "sha256": "f599701b8623f045b109463af8144b64b65f1230955ea7f666aa5ad587aa54fe",
+    "bytes": 565
+  },
+  {
+    "path": "src/Launch/packages.lock.json",
+    "sha256": "579a2d5416265a9ebd917b47f1d468e20de9a35baf604b073ac49e230325e21f",
+    "bytes": 766
+  },
+  {
+    "path": "src/Launch/Properties/AssemblyInfo.cs",
+    "sha256": "3193e34232b1c8bff91fc8f26ba1bd4eada3a1fe3b669580ea2f3596d71ac854",
+    "bytes": 108
+  },
+  {
+    "path": "src/Setup/app.ico",
+    "sha256": "323e8991ce1bca5bcc7db4e00cf619e597ced98f34c04b3300a9195a1cb034c3",
+    "bytes": 35588
+  },
+  {
+    "path": "src/Setup/app.manifest",
+    "sha256": "144d70c3bb76b60933cbdc524146274383c1958ee7cb234599516f511d5b7f2c",
+    "bytes": 603
+  },
+  {
+    "path": "src/Setup/DPI_Modifier_Setup.csproj",
+    "sha256": "c9e027ae2616779f1f87a4cd6556b1a7fb8e349c055d63f1b6dd49382f02853c",
+    "bytes": 1754
+  },
+  {
+    "path": "src/Setup/Dpi.Payload.certificate.cer",
+    "sha256": "25ef8d239830ce1b79b0e0951f94677ba1d6cd0a88534c24ea0d2a13e711bd67",
+    "bytes": 1038
+  },
+  {
+    "path": "src/Setup/Dpi.Payload.DPI.exe",
+    "sha256": "ef0dc9301d76d04b8fa9f37e00bf15dbc3a1e7908e5866e56e4a255b513975de",
+    "bytes": 105224
+  },
+  {
+    "path": "src/Setup/Dpi.Payload.DpiFilter.sys",
+    "sha256": "61e949c6f1e25dce05f5471eaabc5782e0bdca92c0ef897c92fc4ca52d06b494",
+    "bytes": 22272
+  },
+  {
+    "path": "src/Setup/Dpi.Payload.hashes.json",
+    "sha256": "65b8d2742fb0e6120272593bf47fe410737d7b556a426caff4eaaeff50ee1a6b",
+    "bytes": 409
+  },
+  {
+    "path": "src/Setup/Dpi.Payload.Launch.exe",
+    "sha256": "11480e7abf33e76adec36942c39b7c973bf850a3d7f5babea0af6197693c336f",
+    "bytes": 3584
+  },
+  {
+    "path": "src/Setup/Dpi.Payload.Uninstall.exe",
+    "sha256": "fb33bbf4956f774de4753dd990d67992420370d85c343af24bd63310e12c1ed8",
+    "bytes": 61952
+  },
+  {
+    "path": "src/Setup/Dpi.Setup/Install.cs",
+    "sha256": "70c258d38acf363ee1cdde993da76e44c6fe63c69e2861cf7660318cfd3075fc",
+    "bytes": 7199
+  },
+  {
+    "path": "src/Setup/Dpi.Setup/Installation.cs",
+    "sha256": "e0b571daa712a4298f485d2f2fe5582ca9f878825d8a97a20f3e40c160ccb22e",
+    "bytes": 1366
+  },
+  {
+    "path": "src/Setup/Dpi.Setup/Layout.cs",
+    "sha256": "bfd3bc2780e20121b1acdb1f31fcaff80dac848e0c056155279823d1a7362c3b",
+    "bytes": 8412
+  },
+  {
+    "path": "src/Setup/Dpi.Setup/MainEntry.cs",
+    "sha256": "effbd2eeeb42dd1fe954ab2fd2441ec52e0de197fd76808a14961b560f2f2412",
+    "bytes": 1384
+  },
+  {
+    "path": "src/Setup/Dpi.Setup/Payload.cs",
+    "sha256": "a85c5f47b698b398bae3a1c5405107ca9e4612fe3d2e61d832d19d9146f4121d",
+    "bytes": 3839
+  },
+  {
+    "path": "src/Setup/Dpi.Setup/Platform.cs",
+    "sha256": "90f6ad25d44fe30eaf3830c673efdc909e395e5e2300c30abbc2893b0a98fba7",
+    "bytes": 7704
+  },
+  {
+    "path": "src/Setup/Dpi.Setup/SetupForm.cs",
+    "sha256": "8650c0bf213de2a8516c163feafb1b92ca7963de7ea3165c903e064d38cfadf6",
+    "bytes": 5393
+  },
+  {
+    "path": "src/Setup/packages.lock.json",
+    "sha256": "579a2d5416265a9ebd917b47f1d468e20de9a35baf604b073ac49e230325e21f",
+    "bytes": 766
+  },
+  {
+    "path": "src/Setup/Properties/AssemblyInfo.cs",
+    "sha256": "3193e34232b1c8bff91fc8f26ba1bd4eada3a1fe3b669580ea2f3596d71ac854",
+    "bytes": 108
+  },
+  {
+    "path": "src/Uninstall/app.ico",
+    "sha256": "323e8991ce1bca5bcc7db4e00cf619e597ced98f34c04b3300a9195a1cb034c3",
+    "bytes": 35588
+  },
+  {
+    "path": "src/Uninstall/app.manifest",
+    "sha256": "144d70c3bb76b60933cbdc524146274383c1958ee7cb234599516f511d5b7f2c",
+    "bytes": 603
+  },
+  {
+    "path": "src/Uninstall/Dpi.Setup/Installation.cs",
+    "sha256": "e0b571daa712a4298f485d2f2fe5582ca9f878825d8a97a20f3e40c160ccb22e",
+    "bytes": 1366
+  },
+  {
+    "path": "src/Uninstall/Dpi.Setup/Layout.cs",
+    "sha256": "bfd3bc2780e20121b1acdb1f31fcaff80dac848e0c056155279823d1a7362c3b",
+    "bytes": 8412
+  },
+  {
+    "path": "src/Uninstall/Dpi.Setup/MainEntry.cs",
+    "sha256": "844fea347efc79808dfc43431c269279e3f38af35c80f9d830ee8771a9a8d832",
+    "bytes": 1285
+  },
+  {
+    "path": "src/Uninstall/Dpi.Setup/Platform.cs",
+    "sha256": "90f6ad25d44fe30eaf3830c673efdc909e395e5e2300c30abbc2893b0a98fba7",
+    "bytes": 7704
+  },
+  {
+    "path": "src/Uninstall/Dpi.Setup/Remove.cs",
+    "sha256": "04480e018ec891d3a0176e1e9084448a40db3693ff0af64de92bf785ccd2c6de",
+    "bytes": 3253
+  },
+  {
+    "path": "src/Uninstall/Dpi.Setup/SetupForm.cs",
+    "sha256": "4043d07599bebd5839be301c1c3b8ebc5ac8b76972ce17689723458f6b5add4c",
+    "bytes": 4771
+  },
+  {
+    "path": "src/Uninstall/packages.lock.json",
+    "sha256": "579a2d5416265a9ebd917b47f1d468e20de9a35baf604b073ac49e230325e21f",
+    "bytes": 766
+  },
+  {
+    "path": "src/Uninstall/Properties/AssemblyInfo.cs",
+    "sha256": "3193e34232b1c8bff91fc8f26ba1bd4eada3a1fe3b669580ea2f3596d71ac854",
+    "bytes": 108
+  },
+  {
+    "path": "src/Uninstall/Uninstall.csproj",
+    "sha256": "409f465449a37c8e60de3f6a516cc08079a7442a31ceb43c584d83e944d3a841",
+    "bytes": 829
+  },
+  {
+    "path": "tests/Inspect-PE.py",
+    "sha256": "98e348028c513221083a238939c05ec8a07b19780581cbf597ce83294ec2f760",
+    "bytes": 2333
+  },
+  {
+    "path": "tests/Installer-Probe.ps1",
+    "sha256": "33df22d73e1e5a6d33f671d97966087922d050e3b9bb80f96997c484e0525725",
+    "bytes": 5059
+  },
+  {
+    "path": "tests/Probe-Driver.py",
+    "sha256": "6687d60d098002d8ef82575dafaee94cdcb117f29a2e9e5cbbaf5aa23dc5fdba",
+    "bytes": 2580
+  },
+  {
+    "path": "tests/Run-Tests.ps1",
+    "sha256": "5e2225b107c69b3d484b935c01b44900cfb7718258b5aafb5de244d9ab461974",
+    "bytes": 928
+  },
+  {
+    "path": "tests/Test-ManagedContracts.ps1",
+    "sha256": "b09cf1863c75d64ea02b99052aa0292f8a917797d2b15b7a875153de11fc4849",
+    "bytes": 7452
+  },
+  {
+    "path": "tests/Test-PackagedWorkflow.ps1",
+    "sha256": "8067cfd2ccac4f8b7112a6e778f6b052b8dba0bb1f73fb873b33d82207d1359b",
+    "bytes": 12344
+  },
+  {
+    "path": "tests/TestHost/app.manifest",
+    "sha256": "e3d5c9fd086cff1b31bb964556b89e185d0c365f81d27b11f96bb635dc75de61",
+    "bytes": 547
+  },
+  {
+    "path": "tests/TestHost/packages.lock.json",
+    "sha256": "43a19c0dcd0a2886d61d0ff454fcbd32e7647b40154663b73931e052721126ca",
+    "bytes": 766
+  },
+  {
+    "path": "tests/TestHost/Program.cs",
+    "sha256": "807591eee98d1cb253dd3ea59f78b5c1780ebdfb2a17a3dae73ba989b2de47cb",
+    "bytes": 19408
+  },
+  {
+    "path": "tests/TestHost/TestHost.csproj",
+    "sha256": "34ae8d89b141ff1f8a2dffcfc33706d685c9ff40130a9334b93af71dcd8d0b8a",
+    "bytes": 536
+  }
+]

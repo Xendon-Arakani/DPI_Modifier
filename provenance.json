@@ -1,0 +1,11 @@
+{
+  "ownership": "user_confirmed",
+  "origin": "user_chatgpt",
+  "components": [
+    { "id": "DPI.exe", "source": "recovered_il", "binary": "prebuilt_signed", "source_complete": true },
+    { "id": "DpiFilter.sys", "source": "unavailable", "binary": "prebuilt_test_signed", "source_complete": false },
+    { "id": "Launch.exe", "source": "recovered_il", "binary": "prebuilt", "source_complete": true },
+    { "id": "Uninstall.exe", "source": "recovered_il", "binary": "prebuilt", "source_complete": true },
+    { "id": "DPI_Modifier_Setup.exe", "source": "recovered_il", "binary": "rebuild", "source_complete": true }
+  ]
+}

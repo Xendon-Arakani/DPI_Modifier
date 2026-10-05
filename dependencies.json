@@ -1,0 +1,50 @@
+[
+  {
+    "id": "DPI_Modifier",
+    "version": "0.0.0.0",
+    "license": "LicenseRef-UserOwned",
+    "scope": "application",
+    "bundled": true,
+    "ownership_confirmed": true
+  },
+  {
+    "id": "DpiFilter",
+    "sha256": "61e949c6f1e25dce05f5471eaabc5782e0bdca92c0ef897c92fc4ca52d06b494",
+    "license": "LicenseRef-UserOwned",
+    "scope": "driver",
+    "bundled": true,
+    "ownership_confirmed": true,
+    "third_party_source_audit": false
+  },
+  {
+    "id": "Microsoft.NETFramework",
+    "version": "4.8",
+    "license": "LicenseRef-Microsoft-Windows",
+    "scope": "runtime",
+    "bundled": false
+  },
+  {
+    "id": "Microsoft.NETFramework.ReferenceAssemblies",
+    "version": "1.0.3",
+    "license": "MIT",
+    "license_source": "https://github.com/microsoft/dotnet/blob/master/LICENSE",
+    "scope": "build",
+    "bundled": false
+  },
+  {
+    "id": "Microsoft.NETFramework.ReferenceAssemblies.net48",
+    "version": "1.0.3",
+    "license": "MIT",
+    "license_source": "https://github.com/microsoft/dotnet/blob/master/LICENSE",
+    "scope": "build",
+    "bundled": false
+  },
+  {
+    "id": "ilspycmd",
+    "version": "9.1.0.7988",
+    "license": "MIT",
+    "license_source": "https://github.com/icsharpcode/ILSpy/blob/master/LICENSE",
+    "scope": "recovery",
+    "bundled": false
+  }
+]

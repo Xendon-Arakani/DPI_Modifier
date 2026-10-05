@@ -1,0 +1,18 @@
+{
+  "release_stage": "progress",
+  "offered_workflows": ["manual_rotation_reset"],
+  "components": [
+    {"id": "DPI.exe", "available": true},
+    {"id": "DpiFilter.sys", "available": true, "source_complete": false},
+    {"id": "DPI_Modifier_Setup.exe", "available": true}
+  ],
+  "limitations": [
+    {"code": "PHYSICAL_INPUT_MEASUREMENT_UNVERIFIED", "component_id": "DpiFilter.sys", "workflow_id": "mouse_motion"},
+    {"code": "ISOLATED_INSTALL_BOOT_REMOVE_UNVERIFIED", "component_id": "DPI_Modifier_Setup.exe", "workflow_id": "install_boot_remove"},
+    {"code": "NATIVE_SOURCE_UNAVAILABLE", "component_id": "DpiFilter.sys", "workflow_id": "driver_source_build"},
+    {"code": "ORIGINAL_SIGNING_KEY_UNAVAILABLE", "component_id": "DPI.exe", "workflow_id": "signed_app_source_build"}
+  ],
+  "source_snapshot_complete": false,
+  "fresh_install_verified": false,
+  "physical_input_verified": false
+}
