@@ -17,22 +17,11 @@
     <RootNamespace />
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="Dpi.Payload.DPI.exe" />
-    <None Remove="Dpi.Payload.DpiFilter.sys" />
-    <None Remove="Dpi.Payload.Launch.exe" />
-    <None Remove="Dpi.Payload.Uninstall.exe" />
-    <None Remove="Dpi.Payload.certificate.cer" />
-    <None Remove="Dpi.Payload.hashes.json" />
-    <EmbeddedResource Include="Dpi.Payload.DPI.exe" LogicalName="Dpi.Payload.DPI.exe" />
-    <EmbeddedResource Include="Dpi.Payload.DpiFilter.sys" LogicalName="Dpi.Payload.DpiFilter.sys" />
-    <EmbeddedResource Include="Dpi.Payload.Launch.exe" LogicalName="Dpi.Payload.Launch.exe" />
-    <EmbeddedResource Include="Dpi.Payload.Uninstall.exe" LogicalName="Dpi.Payload.Uninstall.exe" />
-    <EmbeddedResource Include="Dpi.Payload.certificate.cer" LogicalName="Dpi.Payload.certificate.cer" />
-    <EmbeddedResource Include="Dpi.Payload.hashes.json" LogicalName="Dpi.Payload.hashes.json" />
+    <EmbeddedResource Include="Payload/*" LogicalName="Dpi.Payload.%(Filename)%(Extension)" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Management" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Extensions" />
   </ItemGroup>
+  <ItemGroup><Compile Include="../Shared/*.cs" Link="Shared/%(Filename)%(Extension)" /></ItemGroup>
 </Project>

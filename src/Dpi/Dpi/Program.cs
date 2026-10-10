@@ -11,10 +11,6 @@ internal static class Program
 	private static void Main(string[] args)
 	{
 		bool flag = Array.IndexOf(args, "--hidden") >= 0;
-		if (WindowLayer.Redirect(flag))
-		{
-			return;
-		}
 		bool createdNew;
 		using (new Mutex(initiallyOwned: true, "Local\\DPI_SingleInstance", out createdNew))
 		{

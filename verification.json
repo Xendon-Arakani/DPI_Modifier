@@ -1,80 +1,271 @@
 {
-  "version": "0.1.0-progress.2",
-  "release_stage": "progress",
-  "minimum_workflow_status": "pass",
-  "tests": [
-    {
-      "id": "installed_payload_identity",
-      "status": "pass"
-    },
-    {
-      "id": "packaged_setup_payload_verification",
-      "status": "pass"
-    },
-    {
-      "id": "extracted_payload_identity",
-      "status": "pass"
-    },
-    {
-      "id": "driver_device_open",
-      "status": "pass"
-    },
-    {
-      "id": "driver_accepts_current_state",
-      "status": "pass"
-    },
-    {
-      "id": "actual_packaged_payload_window",
-      "status": "pass"
-    },
-    {
-      "id": "manual_next_enabled",
-      "status": "pass"
-    },
-    {
-      "id": "manual_rotation_persisted",
-      "status": "pass"
-    },
-    {
-      "id": "manual_rotation_display",
-      "status": "pass"
-    },
-    {
-      "id": "window_capture",
-      "status": "pass"
-    },
-    {
-      "id": "reset_state",
-      "status": "pass"
-    },
-    {
-      "id": "reset_baseline_display",
-      "status": "pass"
-    },
-    {
-      "id": "series_size",
-      "status": "pass"
-    },
-    {
-      "id": "baseline_repeat_count",
-      "status": "pass"
-    }
-  ],
-  "driver_state_restored": true,
-  "app_state_restored": true,
+  "version": "0.2.0-safety.1",
+  "release_stage": "safety_candidate",
+  "downloads_locked": true,
+  "automated_tests": {
+    "success": true,
+    "tests": [
+      {
+        "name": "profile_valid_400_1",
+        "status": "pass"
+      },
+      {
+        "name": "raw_input_ratio_400_1",
+        "status": "pass"
+      },
+      {
+        "name": "profile_valid_400_200",
+        "status": "pass"
+      },
+      {
+        "name": "raw_input_ratio_400_200",
+        "status": "pass"
+      },
+      {
+        "name": "profile_valid_400_400",
+        "status": "pass"
+      },
+      {
+        "name": "raw_input_ratio_400_400",
+        "status": "pass"
+      },
+      {
+        "name": "profile_valid_400_800",
+        "status": "pass"
+      },
+      {
+        "name": "raw_input_ratio_400_800",
+        "status": "pass"
+      },
+      {
+        "name": "profile_valid_800_1",
+        "status": "pass"
+      },
+      {
+        "name": "raw_input_ratio_800_1",
+        "status": "pass"
+      },
+      {
+        "name": "profile_valid_800_400",
+        "status": "pass"
+      },
+      {
+        "name": "raw_input_ratio_800_400",
+        "status": "pass"
+      },
+      {
+        "name": "profile_valid_800_800",
+        "status": "pass"
+      },
+      {
+        "name": "raw_input_ratio_800_800",
+        "status": "pass"
+      },
+      {
+        "name": "profile_valid_800_1600",
+        "status": "pass"
+      },
+      {
+        "name": "raw_input_ratio_800_1600",
+        "status": "pass"
+      },
+      {
+        "name": "profile_valid_1600_1",
+        "status": "pass"
+      },
+      {
+        "name": "raw_input_ratio_1600_1",
+        "status": "pass"
+      },
+      {
+        "name": "profile_valid_1600_800",
+        "status": "pass"
+      },
+      {
+        "name": "raw_input_ratio_1600_800",
+        "status": "pass"
+      },
+      {
+        "name": "profile_valid_1600_1600",
+        "status": "pass"
+      },
+      {
+        "name": "raw_input_ratio_1600_1600",
+        "status": "pass"
+      },
+      {
+        "name": "profile_valid_1600_3200",
+        "status": "pass"
+      },
+      {
+        "name": "raw_input_ratio_1600_3200",
+        "status": "pass"
+      },
+      {
+        "name": "profile_valid_9999_1",
+        "status": "pass"
+      },
+      {
+        "name": "raw_input_ratio_9999_1",
+        "status": "pass"
+      },
+      {
+        "name": "profile_valid_9999_4999",
+        "status": "pass"
+      },
+      {
+        "name": "raw_input_ratio_9999_4999",
+        "status": "pass"
+      },
+      {
+        "name": "profile_valid_9999_9999",
+        "status": "pass"
+      },
+      {
+        "name": "raw_input_ratio_9999_9999",
+        "status": "pass"
+      },
+      {
+        "name": "profile_valid_9999_19998",
+        "status": "pass"
+      },
+      {
+        "name": "raw_input_ratio_9999_19998",
+        "status": "pass"
+      },
+      {
+        "name": "zero_dpi_cannot_disable_mouse",
+        "status": "pass"
+      },
+      {
+        "name": "out_of_range_rejected_before_io",
+        "status": "pass"
+      },
+      {
+        "name": "capture_original_once",
+        "status": "pass"
+      },
+      {
+        "name": "restore_exact_original_configuration",
+        "status": "pass"
+      },
+      {
+        "name": "restore_is_idempotent",
+        "status": "pass"
+      },
+      {
+        "name": "no_write_without_snapshot",
+        "status": "pass"
+      },
+      {
+        "name": "write_failure_reported",
+        "status": "pass"
+      },
+      {
+        "name": "failed_write_still_restores_snapshot",
+        "status": "pass"
+      },
+      {
+        "name": "restore_failure_reported",
+        "status": "pass"
+      },
+      {
+        "name": "restore_failure_can_retry",
+        "status": "pass"
+      },
+      {
+        "name": "detach_before_service_delete_preserves_other_filters",
+        "status": "pass"
+      },
+      {
+        "name": "cleanup_failure_never_restores_blocked_legacy_filter",
+        "status": "pass"
+      },
+      {
+        "name": "detach_failure_preserves_driver_service",
+        "status": "pass"
+      },
+      {
+        "name": "signed_filter_registration_preserves_vendor_and_mouse_driver",
+        "status": "pass"
+      },
+      {
+        "name": "missing_windows_mouse_driver_blocks_install",
+        "status": "pass"
+      },
+      {
+        "name": "generated_dpi_never_zero_at_minimum_base",
+        "status": "pass"
+      },
+      {
+        "name": "zero_dpi_range_rejected",
+        "status": "pass"
+      },
+      {
+        "name": "approved_driver_hash_and_microsoft_signature_trusted",
+        "status": "pass"
+      },
+      {
+        "name": "modified_driver_hash_rejected",
+        "status": "pass"
+      },
+      {
+        "name": "modified_driver_authenticode_rejected",
+        "status": "pass"
+      },
+      {
+        "name": "async_driver_write_started",
+        "status": "pass"
+      },
+      {
+        "name": "ui_pumps_while_driver_delays",
+        "status": "pass"
+      },
+      {
+        "name": "ui_reports_confirmed_write",
+        "status": "pass"
+      },
+      {
+        "name": "rotation_commits_after_write",
+        "status": "pass"
+      },
+      {
+        "name": "failed_rotation_preserves_saved_index",
+        "status": "pass"
+      },
+      {
+        "name": "graceful_exit_restores_before_dispose",
+        "status": "pass"
+      }
+    ],
+    "host_driver_installed": false,
+    "host_boot_settings_changed": false
+  },
+  "source_audit": {
+    "success": true,
+    "no_new_root_certificate_trust": true,
+    "no_boot_policy_mutation": true,
+    "vendor_hashes_verified": true
+  },
+  "package_verification": {
+    "boot_test_performed": false,
+    "local_certificate_bundled": false,
+    "legacy_driver_bundled": false,
+    "fresh_built_application_embedded": true,
+    "driver_authenticode_valid": true,
+    "success": true,
+    "all_payload_hashes_match": true
+  },
+  "legacy_identity_preflight": {
+    "legacy_upgrade_identity_validation": "pass",
+    "format": 1,
+    "driver_hash": "61E949C6F1E25DCE05F5471EAABC5782E0BDCA92C0EF897C92FC4CA52D06B494",
+    "host_changes_performed": false
+  },
   "physical_input_measurement_verified": false,
-  "isolated_install_boot_remove_verified": false,
-  "source_snapshot_complete": false,
-  "limitation_codes": [
-    "PHYSICAL_INPUT_MEASUREMENT_UNVERIFIED",
-    "ISOLATED_INSTALL_BOOT_REMOVE_UNVERIFIED",
-    "NATIVE_SOURCE_UNAVAILABLE",
-    "ORIGINAL_SIGNING_KEY_UNAVAILABLE"
-  ],
-  "sha256": {
-    "source_snapshot": "b28394932be9736c4ea33023bb11a80d742bcd3c5befa77a82b20f0106665cd8",
-    "executable": "92373845b79a732f3e9bf812b0e840097a8752d2a5b797eee49984cc7e9ae0be",
-    "package": "53a64d051fcbc9e0da1b4db69f65273339c71ab2cff1b22b4454a1c78e074b19",
-    "public_files": "deb120dd83239ddd4e72d8fbfa797287ac4d953a5c2f5fc6c0cc7508e374b8e0"
-  }
+  "clean_install_security_off_boot_verified": false,
+  "isolated_upgrade_remove_boot_verified": false,
+  "host_driver_installed": false,
+  "host_boot_settings_changed": false,
+  "package_sha256": "df56416233e90e810cae1c177601bc11b7ae7cd4b565b63044990b3a412f6709"
 }

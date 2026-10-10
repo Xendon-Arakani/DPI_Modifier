@@ -107,9 +107,9 @@ internal sealed class CountdownOverlay : NativeWindow, IDisposable
 			graphics.DrawPath(pen, graphicsPath);
 			graphics.FillPath(colorPhase switch
 			{
-				1 => Brushes.Lime, 
-				0 => Brushes.Red, 
-				_ => Brushes.Blue, 
+				1 => Brushes.Lime,
+				0 => Brushes.Red,
+				_ => Brushes.Blue,
 			}, graphicsPath);
 		}
 		Rectangle bounds = Screen.FromHandle(GetForegroundWindow()).Bounds;

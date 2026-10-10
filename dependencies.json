@@ -1,20 +1,38 @@
 [
   {
     "id": "DPI_Modifier",
-    "version": "0.0.0.0",
+    "version": "0.2.0-safety.1",
     "license": "LicenseRef-UserOwned",
     "scope": "application",
     "bundled": true,
     "ownership_confirmed": true
   },
   {
-    "id": "DpiFilter",
-    "sha256": "61e949c6f1e25dce05f5471eaabc5782e0bdca92c0ef897c92fc4ca52d06b494",
-    "license": "LicenseRef-UserOwned",
-    "scope": "driver",
+    "id": "RawAccel",
+    "version": "1.7.1",
+    "license": "MIT",
+    "license_file": "vendor/RawAccel-1.7.1/LICENSE",
+    "source": "https://github.com/RawAccelOfficial/rawaccel",
+    "scope": "driver_and_wrapper",
     "bundled": true,
-    "ownership_confirmed": true,
-    "third_party_source_audit": false
+    "driver_sha256": "8a62c4deef2774b43a7363b352eda79897533a1080c9c26ffeff0559e43358d7"
+  },
+  {
+    "id": "Newtonsoft.Json",
+    "version": "13.0.1",
+    "license": "MIT",
+    "license_file": "vendor/RawAccel-1.7.1/Newtonsoft.Json-LICENSE.txt",
+    "scope": "runtime",
+    "bundled": true
+  },
+  {
+    "id": "Microsoft.VisualCpp.x64",
+    "version": "14.44.35211.0",
+    "license": "LicenseRef-Microsoft",
+    "scope": "prerequisite",
+    "bundled": false,
+    "downloaded_from_microsoft_if_missing": true,
+    "sha256": "cc0ff0eb1dc3f5188ae6300faef32bf5beeba4bdd6e8e445a9184072096b713b"
   },
   {
     "id": "Microsoft.NETFramework",
@@ -24,27 +42,10 @@
     "bundled": false
   },
   {
-    "id": "Microsoft.NETFramework.ReferenceAssemblies",
-    "version": "1.0.3",
-    "license": "MIT",
-    "license_source": "https://github.com/microsoft/dotnet/blob/master/LICENSE",
-    "scope": "build",
-    "bundled": false
-  },
-  {
     "id": "Microsoft.NETFramework.ReferenceAssemblies.net48",
     "version": "1.0.3",
     "license": "MIT",
-    "license_source": "https://github.com/microsoft/dotnet/blob/master/LICENSE",
     "scope": "build",
-    "bundled": false
-  },
-  {
-    "id": "ilspycmd",
-    "version": "9.1.0.7988",
-    "license": "MIT",
-    "license_source": "https://github.com/icsharpcode/ILSpy/blob/master/LICENSE",
-    "scope": "recovery",
     "bundled": false
   }
 ]

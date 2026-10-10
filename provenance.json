@@ -2,10 +2,31 @@
   "ownership": "user_confirmed",
   "origin": "user_chatgpt",
   "components": [
-    { "id": "DPI.exe", "source": "recovered_il", "binary": "prebuilt_signed", "source_complete": true },
-    { "id": "DpiFilter.sys", "source": "unavailable", "binary": "prebuilt_test_signed", "source_complete": false },
-    { "id": "Launch.exe", "source": "recovered_il", "binary": "prebuilt", "source_complete": true },
-    { "id": "Uninstall.exe", "source": "recovered_il", "binary": "prebuilt", "source_complete": true },
-    { "id": "DPI_Modifier_Setup.exe", "source": "recovered_il", "binary": "rebuild", "source_complete": true }
-  ]
+    {
+      "id": "DPI.exe",
+      "source": "recovered_il_with_signed_driver_integration",
+      "binary": "fresh_build",
+      "source_complete": true
+    },
+    {
+      "id": "rawaccel.sys",
+      "source": "https://github.com/RawAccelOfficial/rawaccel/tree/53a721345617a1e29f3a16750cbdf807040cf44e",
+      "binary": "unmodified_upstream_microsoft_signed",
+      "source_complete": true
+    },
+    {
+      "id": "wrapper.dll",
+      "source": "upstream_rawaccel",
+      "binary": "unmodified_upstream",
+      "source_complete": true
+    },
+    {
+      "id": "DPI_Modifier_Setup.exe",
+      "source": "fresh_signed_driver_installer_with_legacy_migration",
+      "binary": "fresh_build",
+      "source_complete": true
+    }
+  ],
+  "legacy_test_signed_driver_bundled": false,
+  "local_certificate_bundled": false
 }

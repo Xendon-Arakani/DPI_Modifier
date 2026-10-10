@@ -11,7 +11,7 @@ internal static class MainEntry
 	{
 		try
 		{
-			if (args.Length >= 1 && args[0] == "--apply-remove")
+			if (args.Length == 1 && args[0] == "--apply-remove")
 			{
 				if (!Platform.IsAdministrator)
 				{
@@ -24,7 +24,7 @@ internal static class MainEntry
 					{
 						throw new InvalidOperationException("Another DPI Modifier installation operation is running.");
 					}
-					Remove.Apply(Array.IndexOf(args, "--disable-test-mode") >= 0);
+					Remove.Apply();
 				}
 				return 3010;
 			}

@@ -1,6 +1,10 @@
+.tools/
+.private/
+release/
 **/bin/
 **/obj/
-.private/
+src/Setup/Payload/
+vendor/Microsoft/
 tests/artifacts/
 *.pfx
 *.p12

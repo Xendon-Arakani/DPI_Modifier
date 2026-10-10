@@ -1,69 +1,73 @@
 using System;
-using System.Runtime.InteropServices;
-using Microsoft.Win32.SafeHandles;
-
 namespace Dpi;
-
+internal interface IMouseBackend
+{
+    object Capture();
+    void Apply(int target, int baseline);
+    void Restore(object snapshot);
+}
+internal sealed class RawAccelBackend : IMouseBackend
+{
+    public object Capture()
+    {
+        VersionHelper.ValidOrThrow();
+        return DriverConfig.GetActive();
+    }
+    internal static DriverConfig CreateConfig(int target, int baseline)
+    {
+        var profile = new Profile { name = "DPI Modifier", outputDPI = target };
+        profile.argsX.mode = AccelMode.noaccel;
+        profile.argsY.mode = AccelMode.noaccel;
+        var config = DriverConfig.FromProfile(profile);
+        config.defaultDeviceConfig.dpi = baseline;
+        return config;
+    }
+    public void Apply(int target, int baseline) => CreateConfig(target, baseline).Activate();
+    // Preserve the native configuration, including the empty/pass-through state.
+    // The upstream JSON converter adds a default profile to an empty configuration.
+    public void Restore(object snapshot) => ((DriverConfig)snapshot).Activate();
+}
 internal sealed class KernelMouseController : IDisposable
 {
-	private struct DriverState
-	{
-		public uint TargetDpi;
-
-		public uint BaseDpi;
-	}
-
-	private const uint GenericRead = 2147483648u;
-
-	private const uint GenericWrite = 1073741824u;
-
-	private const uint OpenExisting = 3u;
-
-	private const uint IoctlSetState = 991232u;
-
-	private SafeFileHandle handle;
-
-	public bool Apply(int target, int baseline)
-	{
-		if (baseline < 1 || baseline >= 10000 || target < 0 || target > baseline * 2)
-		{
-			return false;
-		}
-		if (handle == null)
-		{
-			handle = CreateFile("\\\\.\\DpiFilter", 3221225472u, 3u, IntPtr.Zero, 3u, 0u, IntPtr.Zero);
-		}
-		if (handle.IsInvalid)
-		{
-			Dispose();
-			return false;
-		}
-		DriverState input = new DriverState
-		{
-			TargetDpi = (uint)target,
-			BaseDpi = (uint)baseline
-		};
-		uint returned;
-		bool flag = DeviceIoControl(handle, 991232u, ref input, 8u, IntPtr.Zero, 0u, out returned, IntPtr.Zero);
-		if (!flag)
-		{
-			Dispose();
-		}
-		return flag;
-	}
-
-	public void Dispose()
-	{
-		if (handle != null)
-		{
-			handle.Dispose();
-		}
-		handle = null;
-	}
-
-	[DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-	private static extern SafeFileHandle CreateFile(string name, uint access, uint share, IntPtr security, uint creation, uint flags, IntPtr template);
-
-	[DllImport("kernel32.dll", SetLastError = true)]
-	private static extern bool DeviceIoControl(SafeFileHandle device, uint controlCode, ref DriverState input, uint inputSize, IntPtr output, uint outputSize, out uint returned, IntPtr overlapped);
+    private readonly IMouseBackend backend;
+    private readonly object gate = new object();
+    private object original;
+    private bool changed;
+    private bool disposed;
+    public int LastError { get; private set; }
+    public string LastErrorMessage { get; private set; }
+    public bool InputRejected { get; private set; }
+    public KernelMouseController() : this(new RawAccelBackend()) { }
+    internal KernelMouseController(IMouseBackend backend) => this.backend = backend;
+    public bool Apply(int target, int baseline)
+    {
+        lock (gate)
+        {
+            InputRejected = baseline < 1 || baseline > 9999 || target < 1 || target > baseline * 2;
+            if (InputRejected || disposed) { LastError = InputRejected ? 87 : 6; return false; }
+            try
+            {
+                if (original == null) original = backend.Capture();
+                changed = true;
+                backend.Apply(target, baseline);
+                LastError = 0;
+                LastErrorMessage = null;
+                return true;
+            }
+            catch (Exception error) { LastError = 31; LastErrorMessage = error.Message; return false; }
+        }
+    }
+    public bool Restore()
+    {
+        lock (gate)
+        {
+            if (!changed) return true;
+            try { backend.Restore(original); changed = false; LastError = 0; return true; }
+            catch (Exception error) { LastError = 31; LastErrorMessage = error.Message; return false; }
+        }
+    }
+    public void Dispose()
+    {
+        lock (gate) { if (disposed) return; Restore(); disposed = true; }
+    }
 }

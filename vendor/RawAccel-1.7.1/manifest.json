@@ -1,0 +1,17 @@
+{
+  "project": "RawAccel",
+  "version": "1.7.1",
+  "license": "MIT",
+  "upstream": "https://github.com/RawAccelOfficial/rawaccel",
+  "source_commit": "53a721345617a1e29f3a16750cbdf807040cf44e",
+  "download": "https://github.com/RawAccelOfficial/rawaccel/releases/download/v1.7.1/RawAccel_v1.7.1.zip",
+  "archive_sha256": "770fe3ae0919ca3c4d412f58c985eb27f5434decad809f7e8206de4e8852eec4",
+  "driver_signer": "Microsoft Windows Hardware Compatibility Publisher",
+  "files": {
+    "LICENSE": "5781F726C7CE4D8871B6F79824273E69585ED820C919A2E3D395B91EC47E8E90",
+    "Newtonsoft.Json-LICENSE.txt": "D7F83BBEA3264A8E23D7739E44D9DB1A4994B357274DF6F00876EB2E623827AD",
+    "Newtonsoft.Json.dll": "B624949DF8B0E3A6153FDFB730A7C6F4990B6592EE0D922E1788433D276610F3",
+    "rawaccel.sys": "8A62C4DEEF2774B43A7363B352EDA79897533A1080C9C26FFEFF0559E43358D7",
+    "wrapper.dll": "E17D540FB0BB5E47BA7C8E01AFF39F1570BFB7EF673A1DDC0BCCD2A26F9EFB78"
+  }
+}

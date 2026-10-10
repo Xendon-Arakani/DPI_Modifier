@@ -60,7 +60,7 @@ internal sealed class SeriesSource
 
 	public static bool IsConfigurationValid(int baseDpi, int lowerRangeDpi, int upperRangeDpi)
 	{
-		if (baseDpi >= 1 && baseDpi <= 9999 && lowerRangeDpi >= 0 && lowerRangeDpi <= baseDpi && upperRangeDpi >= 0 && upperRangeDpi <= baseDpi)
+		if (baseDpi >= 1 && baseDpi <= 9999 && lowerRangeDpi >= 0 && lowerRangeDpi < baseDpi && upperRangeDpi >= 0 && upperRangeDpi <= baseDpi)
 		{
 			if (lowerRangeDpi == 0)
 			{

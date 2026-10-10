@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.exe binary
+*.dll binary
+*.sys binary
+*.ico binary
+*.Icon binary
+vendor/RawAccel-1.7.1/* -text

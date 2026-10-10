@@ -17,8 +17,8 @@
   </PropertyGroup>
   <ItemGroup />
   <ItemGroup>
-    <Reference Include="System.Management" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Extensions" />
   </ItemGroup>
+  <ItemGroup><Compile Include="../Shared/*.cs" Link="Shared/%(Filename)%(Extension)" /></ItemGroup>
 </Project>

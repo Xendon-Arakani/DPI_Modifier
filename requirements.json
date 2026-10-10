@@ -1,14 +1,43 @@
 {
-  "os": { "family": "windows", "major": [10, 11], "architecture": "x64" },
-  "runtime": { "id": "netframework", "minimum": "4.8", "bundled": false },
-  "development_runtime": false,
-  "gpu": false,
-  "hdr": false,
-  "admin": { "install": true, "run": false, "remove": true },
-  "reboot": { "install": true, "remove": true, "automatic": false },
-  "secure_boot": false,
-  "test_signing": true,
-  "network": false,
-  "drive_encryption_recovery_key": { "conditional": true },
+  "os": {
+    "family": "windows",
+    "major": [
+      10,
+      11
+    ],
+    "architecture": "x64"
+  },
+  "runtime": {
+    "id": "netframework",
+    "minimum": "4.8",
+    "bundled": false
+  },
+  "vc_runtime": {
+    "id": "Microsoft.VisualCpp.x64",
+    "minimum": "14.29",
+    "bundled": false,
+    "downloaded_if_missing": true,
+    "source": "https://aka.ms/vs/17/release/vc_redist.x64.exe"
+  },
+  "admin": {
+    "install": true,
+    "run": false,
+    "remove": true
+  },
+  "reboot": {
+    "install": true,
+    "remove": true,
+    "automatic": false
+  },
+  "secure_boot": {
+    "required_off": false,
+    "changed_by_package": false
+  },
+  "test_signing": false,
+  "boot_settings_changed": false,
+  "network": {
+    "install_if_vc_runtime_missing": true,
+    "run": false
+  },
   "portable": false
 }

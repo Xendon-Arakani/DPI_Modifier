@@ -1,18 +1,31 @@
 {
-  "release_stage": "progress",
-  "offered_workflows": ["manual_rotation_reset"],
-  "components": [
-    {"id": "DPI.exe", "available": true},
-    {"id": "DpiFilter.sys", "available": true, "source_complete": false},
-    {"id": "DPI_Modifier_Setup.exe", "available": true}
-  ],
+  "version": "0.2.0-safety.1",
+  "release_stage": "safety_candidate",
+  "downloads_locked": true,
+  "publish_allowed": false,
+  "source_push_allowed": true,
+  "test_signing_required": false,
+  "security_settings_changed": false,
+  "signed_driver_verified": true,
   "limitations": [
-    {"code": "PHYSICAL_INPUT_MEASUREMENT_UNVERIFIED", "component_id": "DpiFilter.sys", "workflow_id": "mouse_motion"},
-    {"code": "ISOLATED_INSTALL_BOOT_REMOVE_UNVERIFIED", "component_id": "DPI_Modifier_Setup.exe", "workflow_id": "install_boot_remove"},
-    {"code": "NATIVE_SOURCE_UNAVAILABLE", "component_id": "DpiFilter.sys", "workflow_id": "driver_source_build"},
-    {"code": "ORIGINAL_SIGNING_KEY_UNAVAILABLE", "component_id": "DPI.exe", "workflow_id": "signed_app_source_build"}
+    {
+      "code": "CLEAN_INSTALL_SECURITY_OFF_BOOT_INPUT_UNVERIFIED",
+      "component_id": "rawaccel.sys",
+      "workflow_id": "install_boot_input"
+    },
+    {
+      "code": "PHYSICAL_MOUSE_SCALING_UNVERIFIED",
+      "component_id": "rawaccel.sys",
+      "workflow_id": "mouse_motion"
+    },
+    {
+      "code": "LEGACY_UPGRADE_AND_REMOVE_BOOT_UNVERIFIED",
+      "component_id": "DPI_Modifier_Setup.exe",
+      "workflow_id": "upgrade_remove_boot"
+    }
   ],
-  "source_snapshot_complete": false,
   "fresh_install_verified": false,
-  "physical_input_verified": false
+  "physical_input_verified": false,
+  "host_driver_installed_during_development": false,
+  "system_restart_performed": false
 }

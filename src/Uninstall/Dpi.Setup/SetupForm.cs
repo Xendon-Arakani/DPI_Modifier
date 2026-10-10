@@ -10,9 +10,9 @@ namespace Dpi.Setup;
 
 internal sealed class SetupForm : Form
 {
-	private readonly CheckBox permission = new CheckBox();
+	private readonly Label permission = new Label();
 
-	private readonly CheckBox recovery = new CheckBox();
+	private readonly Label recovery = new Label();
 
 	private readonly Label status = new Label();
 
@@ -27,8 +27,8 @@ internal sealed class SetupForm : Form
 	public SetupForm()
 	{
 		Text = "Remove DPI Modifier";
-		permission.Text = "Restore Windows test-mode setting (may affect other drivers)";
-		permission.Visible = Installation.Load().TestModeChanged;
+		permission.Text = "Your Windows security settings will be preserved.";
+		Installation.Load();
 		action.Text = "Remove";
 		status.Text = "Restart required. Saved DPI settings will be kept.";
 		BackColor = Color.FromArgb(15, 17, 22);
@@ -63,6 +63,7 @@ internal sealed class SetupForm : Form
 			Dock = DockStyle.Fill
 		}, 0, 0);
 		permission.Dock = DockStyle.Fill;
+        permission.Enabled = true;
 		recovery.Dock = DockStyle.Fill;
 		tableLayoutPanel.Controls.Add(permission, 0, 1);
 		status.Dock = DockStyle.Fill;
@@ -97,10 +98,10 @@ internal sealed class SetupForm : Form
 		}
 		try
 		{
-			string arguments = "--apply-remove" + (permission.Checked ? " --disable-test-mode" : "");
+			string arguments = "--apply-remove";
 			busy = true;
 			Button button = action;
-			CheckBox checkBox = permission;
+			Label checkBox = permission;
 			bool flag = (recovery.Enabled = false);
 			bool enabled = (checkBox.Enabled = flag);
 			button.Enabled = enabled;
@@ -120,7 +121,7 @@ internal sealed class SetupForm : Form
 			worker.RunWorkerCompleted += delegate(object sender, RunWorkerCompletedEventArgs e)
 			{
 				busy = false;
-				CheckBox checkBox2 = permission;
+				Label checkBox2 = permission;
 				bool enabled2 = (recovery.Enabled = true);
 				checkBox2.Enabled = enabled2;
 				action.Enabled = true;

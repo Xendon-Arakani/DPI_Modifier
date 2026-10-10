@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace Dpi;
 
@@ -83,6 +84,8 @@ internal sealed class MainForm : Form
 
 	private Label kindLabel;
 
+	private Label driverLabel;
+
 	private FlowLayoutPanel entriesPanel;
 
 	private readonly ValueCard[] entries = new ValueCard[9];
@@ -90,6 +93,10 @@ internal sealed class MainForm : Form
 	private NotifyIcon tray;
 
 	private bool allowExit;
+	private bool applying;
+	private Task<bool> pendingApply;
+	private bool closing;
+	private bool exitReady;
 
 	private int overrideDpi = -1;
 
@@ -109,7 +116,9 @@ internal sealed class MainForm : Form
 		}
 	}
 
-	public MainForm()
+	public MainForm() : this(null, null) { }
+
+	internal MainForm(KernelMouseController controller, AppState suppliedState)
 	{
 		using (Stream stream = typeof(MainForm).Assembly.GetManifestResourceStream("Dpi.Icon"))
 		{
@@ -117,7 +126,7 @@ internal sealed class MainForm : Form
 		}
 		trayIcon = new Icon(windowIcon, SystemInformation.SmallIconSize);
 		base.Icon = windowIcon;
-		state = AppState.Load();
+		state = suppliedState ?? AppState.Load();
 		seriesSource = new SeriesSource();
 		bool flag = false;
 		if (!SeriesSource.IsConfigurationValid(state.BaseDpi, state.LowerRangeDpi, state.UpperRangeDpi))
@@ -144,7 +153,7 @@ internal sealed class MainForm : Form
 		{
 			state.Save();
 		}
-		mouse = new KernelMouseController();
+		mouse = controller ?? new KernelMouseController();
 		wakeTimer.Tick += delegate
 		{
 			WakeTiming();
@@ -212,6 +221,9 @@ internal sealed class MainForm : Form
 		label.Location = new Point(0, 0);
 		Label value = label;
 		panel2.Controls.Add(value);
+		driverLabel = MakeLabel("DRIVER CHECKING", 280, TextMuted, new Point(570, 12));
+		driverLabel.TextAlign = ContentAlignment.MiddleRight;
+		panel2.Controls.Add(driverLabel);
 		return panel2;
 	}
 
@@ -456,7 +468,13 @@ internal sealed class MainForm : Form
 
 	protected override void WndProc(ref Message message)
 	{
-		if (message.Msg == 786)
+		if (message.Msg == 0x8040)
+        {
+            allowExit = true;
+            Close();
+            return;
+        }
+        if (message.Msg == 786 && !applying && !closing)
 		{
 			int num = message.WParam.ToInt32();
 			if (num == 1 && !state.Automatic && state.EnablePlus)
@@ -482,7 +500,7 @@ internal sealed class MainForm : Form
 		base.WndProc(ref message);
 	}
 
-	private bool AdvanceIndex()
+	private async Task<bool> AdvanceIndex()
 	{
 		int[] values = state.Values;
 		int index = state.Index;
@@ -498,7 +516,7 @@ internal sealed class MainForm : Form
 		{
 			num = state.Index + 1;
 		}
-		if (!mouse.Apply(array[num], state.BaseDpi))
+		if (!await ApplyTarget(array[num], state.BaseDpi))
 		{
 			return false;
 		}
@@ -509,7 +527,7 @@ internal sealed class MainForm : Form
 		{
 			state.Values = values;
 			state.Index = index;
-			mouse.Apply(currentDpi, state.BaseDpi);
+			await ApplyTarget(currentDpi, state.BaseDpi);
 			return false;
 		}
 		overrideDpi = -1;
@@ -521,21 +539,23 @@ internal sealed class MainForm : Form
 		return true;
 	}
 
-	private void RequestNext()
+	private async void RequestNext()
 	{
+        if (applying || closing) return;
 		if (!state.Automatic && state.EnablePlus)
 		{
-			AdvanceIndex();
+			await AdvanceIndex();
 		}
 	}
 
-	private void ResetValues()
+	private async void ResetValues()
 	{
+        if (applying || closing) return;
 		int[] values = state.Values;
 		int index = state.Index;
 		int currentDpi = CurrentDpi;
 		int[] values2 = seriesSource.Create(state.BaseDpi, state.LowerRangeDpi, state.UpperRangeDpi);
-		if (mouse.Apply(state.BaseDpi, state.BaseDpi))
+		if (await ApplyTarget(state.BaseDpi, state.BaseDpi))
 		{
 			state.Values = values2;
 			state.Index = -1;
@@ -543,7 +563,7 @@ internal sealed class MainForm : Form
 			{
 				state.Values = values;
 				state.Index = index;
-				mouse.Apply(currentDpi, state.BaseDpi);
+				await ApplyTarget(currentDpi, state.BaseDpi);
 			}
 			else
 			{
@@ -554,14 +574,37 @@ internal sealed class MainForm : Form
 		}
 	}
 
-	private void ApplyCurrent()
+	private async void ApplyCurrent()
 	{
-		mouse.Apply(CurrentDpi, state.BaseDpi);
+        if (applying || closing) return;
+		await ApplyTarget(CurrentDpi, state.BaseDpi);
 	}
 
-	private bool ApplyOverride(int target)
+
+    private async Task<bool> ApplyTarget(int target, int baseline)
+    {
+        if (applying || closing) return false;
+        applying = true;
+        driverLabel.Text = "APPLYING DPI...";
+        driverLabel.ForeColor = TextMuted;
+        try
+        {
+            pendingApply = Task.Run(() => mouse.Apply(target, baseline));
+            bool applied = await pendingApply;
+            driverLabel.Text = applied ? "DRIVER READY" : (mouse.InputRejected ? "INVALID DPI" : "DRIVER UNAVAILABLE");
+            driverLabel.ForeColor = applied ? Green : Accent;
+            return applied;
+        }
+        finally
+        {
+            applying = false;
+            if (clock.IsRunning && !closing) wakeTimer.Start();
+        }
+    }
+
+	private async Task<bool> ApplyOverride(int target)
 	{
-		if (!mouse.Apply(target, state.BaseDpi))
+		if (!await ApplyTarget(target, state.BaseDpi))
 		{
 			return false;
 		}
@@ -571,9 +614,10 @@ internal sealed class MainForm : Form
 		return true;
 	}
 
-	private void CommitValue()
+	private async void CommitValue()
 	{
-		if (!int.TryParse(dpiInput.Text, out var result) || result == CurrentDpi || !ApplyOverride(result))
+        if (applying || closing) return;
+		if (!int.TryParse(dpiInput.Text, out var result) || result == CurrentDpi || !await ApplyOverride(result))
 		{
 			dpiInput.Text = CurrentDpi.ToString();
 		}
@@ -586,14 +630,15 @@ internal sealed class MainForm : Form
 		upperInput.Text = state.UpperRangeDpi.ToString();
 	}
 
-	private void CommitSettings()
+	private async void CommitSettings()
 	{
+        if (applying || closing) return;
 		if (!int.TryParse(baseInput.Text, out var result) || result < 1 || result > 9999 || !int.TryParse(lowerInput.Text, out var result2) || result2 < 0 || !int.TryParse(upperInput.Text, out var result3) || result3 < 0)
 		{
 			UpdateSettingsFields();
 			return;
 		}
-		result2 = Math.Min(result2, result);
+		result2 = Math.Min(result2, result - 1);
 		result3 = Math.Min(result3, result);
 		if (!SeriesSource.IsConfigurationValid(result, result2, result3) || (result == state.BaseDpi && result2 == state.LowerRangeDpi && result3 == state.UpperRangeDpi))
 		{
@@ -607,7 +652,7 @@ internal sealed class MainForm : Form
 		int[] values = state.Values;
 		int index = state.Index;
 		int[] values2 = seriesSource.Create(result, result2, result3);
-		if (!mouse.Apply(result, result))
+		if (!await ApplyTarget(result, result))
 		{
 			UpdateSettingsFields();
 			return;
@@ -624,7 +669,7 @@ internal sealed class MainForm : Form
 			state.UpperRangeDpi = upperRangeDpi;
 			state.Values = values;
 			state.Index = index;
-			mouse.Apply(currentDpi, baseDpi);
+			await ApplyTarget(currentDpi, baseDpi);
 		}
 		else
 		{
@@ -662,6 +707,7 @@ internal sealed class MainForm : Form
 
 	private void CommitTiming()
 	{
+        if (applying || closing) return;
 		if (!int.TryParse(durationInput.Text, out var result) || !int.TryParse(countdownInput.Text, out var result2) || !SeriesSource.IsTimingConfigurationValid(result, result2) || (result == state.DurationSeconds && result2 == state.CountdownSeconds))
 		{
 			UpdateTimingFields();
@@ -686,6 +732,7 @@ internal sealed class MainForm : Form
 
 	private void CommitMode()
 	{
+        if (applying || closing) return;
 		if (updatingControls)
 		{
 			return;
@@ -745,6 +792,7 @@ internal sealed class MainForm : Form
 
 	private void ToggleTiming()
 	{
+        if (applying || closing) return;
 		if (!state.Automatic)
 		{
 			return;
@@ -784,9 +832,10 @@ internal sealed class MainForm : Form
 		UpdateControls();
 	}
 
-	private void WakeTiming()
+	private async void WakeTiming()
 	{
 		wakeTimer.Stop();
+        if (applying || closing) return;
 		if (!clock.IsRunning || !state.Automatic)
 		{
 			return;
@@ -798,7 +847,7 @@ internal sealed class MainForm : Form
 			{
 				countdown.Hide();
 			}
-			if (!AdvanceIndex())
+			if (!await AdvanceIndex())
 			{
 				StopTiming();
 				return;
@@ -856,19 +905,39 @@ internal sealed class MainForm : Form
 		Activate();
 	}
 
-	protected override void OnFormClosing(FormClosingEventArgs e)
-	{
-		if (!allowExit && e.CloseReason != CloseReason.WindowsShutDown)
-		{
-			e.Cancel = true;
-			HideToTray();
-		}
-		else
-		{
-			StopTiming();
-			base.OnFormClosing(e);
-		}
-	}
+
+    protected override void OnFormClosing(FormClosingEventArgs e)
+    {
+        if (!allowExit && e.CloseReason != CloseReason.WindowsShutDown)
+        {
+            e.Cancel = true;
+            HideToTray();
+        }
+        else if (!exitReady)
+        {
+            e.Cancel = true;
+            if (!closing) FinishExit();
+        }
+        else base.OnFormClosing(e);
+    }
+    private async void FinishExit()
+    {
+        closing = true;
+        StopTiming();
+        if (pendingApply != null) await pendingApply;
+        bool restored = await Task.Run(() => mouse.Restore());
+        if (!restored)
+        {
+            closing = false;
+            allowExit = false;
+            driverLabel.Text = "RESTORE FAILED";
+            MessageBox.Show("The previous mouse settings could not be restored. Retry Exit from the tray menu.", Text);
+            return;
+        }
+        exitReady = true;
+        allowExit = true;
+        Close();
+    }
 
 	protected override void Dispose(bool disposing)
 	{
