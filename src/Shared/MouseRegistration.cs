@@ -18,8 +18,8 @@ internal static class MouseRegistration
 {
     public static void Detach(IMouseRegistration registry, string name)
     {
-        // Never delete/disable a service before removing its class registration.
-        // Never restore a blocked legacy filter if later cleanup fails.
+
+
         registry.WriteFilters(Layout.RemoveFilter(registry.ReadFilters(), name));
         registry.DeleteService(name);
     }

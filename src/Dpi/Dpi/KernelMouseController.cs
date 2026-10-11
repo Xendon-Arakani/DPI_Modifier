@@ -23,8 +23,8 @@ internal sealed class RawAccelBackend : IMouseBackend
         return config;
     }
     public void Apply(int target, int baseline) => CreateConfig(target, baseline).Activate();
-    // Preserve the native configuration, including the empty/pass-through state.
-    // The upstream JSON converter adds a default profile to an empty configuration.
+
+
     public void Restore(object snapshot) => ((DriverConfig)snapshot).Activate();
 }
 internal sealed class KernelMouseController : IDisposable

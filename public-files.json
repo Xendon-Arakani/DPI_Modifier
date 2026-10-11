@@ -11,13 +11,13 @@
   },
   {
     "path": "Build-Release.ps1",
-    "sha256": "a1bd99f11d87824f903af44721594108e4102a2b704c23283277cfe092d49f60",
-    "bytes": 7680
+    "sha256": "b28af37dc26c69927feb0233b2e294177738c69552986d11c9e15eb9276ecb01",
+    "bytes": 7892
   },
   {
     "path": "dependencies.json",
-    "sha256": "aec7badb4f1254fbfce594cb2d9840a3b62f3556c6c23c0c1da720b08a17a3d2",
-    "bytes": 1347
+    "sha256": "b6030a71e6d910f0951a942f742d8a3d3bb458adcad1be803d5139cd831735f5",
+    "bytes": 1338
   },
   {
     "path": "Directory.Build.props",
@@ -35,24 +35,14 @@
     "bytes": 896
   },
   {
-    "path": "README.md",
-    "sha256": "fe3f1e43f4ab1b5a4dca37f0c91eb0beb27ee08f1c29ed6d93078a2e47a4714f",
-    "bytes": 2949
-  },
-  {
     "path": "release-status.json",
-    "sha256": "b9e98ee77e805c175c3bc7c7c6543b98d3c4ec93a8cba472cd4c10bdd1c1480e",
-    "bytes": 910
+    "sha256": "25c8c011446b15f985ee77c527e1775435cc32d0816c68ae4ffd08333061234b",
+    "bytes": 1614
   },
   {
     "path": "requirements.json",
     "sha256": "19231b7b9c2a169706a97c3cb426f7dddbe90ae770b3a5323263c4dce1c01b19",
     "bytes": 805
-  },
-  {
-    "path": "docs/VALIDATION.md",
-    "sha256": "1714139467d50db4c7371dc45041388a26799776e5c05d93f34a4d25a63c84a2",
-    "bytes": 1772
   },
   {
     "path": "src/Dpi/app.development.manifest",
@@ -101,8 +91,8 @@
   },
   {
     "path": "src/Dpi/Dpi/KernelMouseController.cs",
-    "sha256": "631f0a1e9e3d4f6f5b04d7c7ca0c159be1bd884d0bc9cb914b62345bf34e2774",
-    "bytes": 2742
+    "sha256": "f418e0cdc9550833624d68fc2f81ae66b06563bcdc726d7addb3befe3580e95c",
+    "bytes": 2577
   },
   {
     "path": "src/Dpi/Dpi/MainForm.cs",
@@ -181,8 +171,8 @@
   },
   {
     "path": "src/Setup/Dpi.Setup/Install.cs",
-    "sha256": "c81926649942e38f149befd151538a86aae823add69a2f8c2a7dc8db4cf5343e",
-    "bytes": 7521
+    "sha256": "f8f537b76bfc036f91447c79924ccc11c9e87b0d3b538704f338a9a8c1dd6807",
+    "bytes": 7425
   },
   {
     "path": "src/Setup/Dpi.Setup/MainEntry.cs",
@@ -211,8 +201,8 @@
   },
   {
     "path": "src/Shared/Installation.cs",
-    "sha256": "5f88e74141a6be7049673610cf0fb5943af07f139d736509cb61ff3aa2374c2d",
-    "bytes": 2615
+    "sha256": "a85ee91b39f12446381fc531735666b771976a11981e04ad5824bd07454221de",
+    "bytes": 2529
   },
   {
     "path": "src/Shared/Layout.cs",
@@ -221,8 +211,8 @@
   },
   {
     "path": "src/Shared/MouseRegistration.cs",
-    "sha256": "3bbbff65d95b96e477376508e0813dc258b84966c2e4c4aded0285488c8291a1",
-    "bytes": 964
+    "sha256": "35d4b815187918a9e117a9c662294bb8992f18151617a7bee395a61f4b1a87f6",
+    "bytes": 811
   },
   {
     "path": "src/Shared/Platform.cs",
@@ -231,8 +221,8 @@
   },
   {
     "path": "src/Shared/Removal.cs",
-    "sha256": "fc9fa1a0c8342aea283a2944b9fec2928a173a36d7956f0d8ee7fa4d79c1b19c",
-    "bytes": 4107
+    "sha256": "0d9561358d342600637ad58b9cde7489b718a9e2a272d340867b56ef2c4d20cc",
+    "bytes": 3848
   },
   {
     "path": "src/Uninstall/app.ico",
@@ -276,8 +266,8 @@
   },
   {
     "path": "tests/Run-Tests.ps1",
-    "sha256": "0a2b60988de73d69c0e1cd4a9caa07d5802ede528b6418407e324304534b9723",
-    "bytes": 1603
+    "sha256": "80dffed9ddb39223d63333b54ac56c323f6a32be0ee892ee719c17ca1fe610bf",
+    "bytes": 1702
   },
   {
     "path": "tests/SafetyTests/packages.lock.json",

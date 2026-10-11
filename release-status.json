@@ -1,8 +1,8 @@
 {
-  "version": "0.2.0-safety.1",
-  "release_stage": "safety_candidate",
-  "downloads_locked": true,
-  "publish_allowed": false,
+  "version": "0.2.0",
+  "release_stage": "ready",
+  "downloads_locked": false,
+  "publish_allowed": true,
   "source_push_allowed": true,
   "test_signing_required": false,
   "security_settings_changed": false,
@@ -11,21 +11,37 @@
     {
       "code": "CLEAN_INSTALL_SECURITY_OFF_BOOT_INPUT_UNVERIFIED",
       "component_id": "rawaccel.sys",
-      "workflow_id": "install_boot_input"
+      "workflow_id": "install_boot_input",
+      "blocks_authorized_publication": false
     },
     {
       "code": "PHYSICAL_MOUSE_SCALING_UNVERIFIED",
       "component_id": "rawaccel.sys",
-      "workflow_id": "mouse_motion"
+      "workflow_id": "mouse_motion",
+      "blocks_authorized_publication": false
     },
     {
       "code": "LEGACY_UPGRADE_AND_REMOVE_BOOT_UNVERIFIED",
       "component_id": "DPI_Modifier_Setup.exe",
-      "workflow_id": "upgrade_remove_boot"
+      "workflow_id": "upgrade_remove_boot",
+      "blocks_authorized_publication": false
     }
   ],
   "fresh_install_verified": false,
   "physical_input_verified": false,
   "host_driver_installed_during_development": false,
-  "system_restart_performed": false
+  "system_restart_performed": false,
+  "presentation_ready": true,
+  "human_authorized_publication": true,
+  "human_functional_test": {
+    "status": "pass_reported",
+    "evidence_kind": "human_message",
+    "source_thread_id": "01a10966-d19d-7ef1-ba60-bf0dd4e57acd",
+    "message_id": "01a12934-9da4-7051-aa93-08f9a372c61e",
+    "exact_tested_package_hash_confirmed": false
+  },
+  "clean_install_security_off_boot_verified": false,
+  "physical_scaling_measurement_verified": false,
+  "legacy_upgrade_and_remove_boot_verified": false,
+  "publication_basis": "HUMAN_FUNCTIONAL_TEST_AND_EXPLICIT_PUBLICATION_AUTHORIZATION"
 }

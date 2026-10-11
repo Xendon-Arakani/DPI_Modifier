@@ -13,7 +13,7 @@ public sealed class Installation
     public string DriverHash = SignedDriverHash;
     public bool DriverOwned;
     public Dictionary<string, string> Files;
-    // Read-only compatibility with the withdrawn installer; never change boot policy.
+
     public string Thumbprint;
     public bool RootAdded;
     public bool TestModeChanged;

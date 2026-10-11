@@ -1,7 +1,16 @@
 {
-  "version": "0.2.0-safety.1",
-  "release_stage": "safety_candidate",
-  "downloads_locked": true,
+  "version": "0.2.0",
+  "release_stage": "ready",
+  "publish_allowed": true,
+  "downloads_locked": false,
+  "human_authorized_publication": true,
+  "human_functional_test": {
+    "status": "pass_reported",
+    "evidence_kind": "human_message",
+    "source_thread_id": "01a10966-d19d-7ef1-ba60-bf0dd4e57acd",
+    "message_id": "01a12934-9da4-7051-aa93-08f9a372c61e",
+    "exact_tested_package_hash_confirmed": false
+  },
   "automated_tests": {
     "success": true,
     "tests": [
@@ -242,30 +251,86 @@
     "host_boot_settings_changed": false
   },
   "source_audit": {
-    "success": true,
-    "no_new_root_certificate_trust": true,
+    "vendor_hashes_verified": true,
     "no_boot_policy_mutation": true,
-    "vendor_hashes_verified": true
+    "no_new_root_certificate_trust": true,
+    "success": true
   },
   "package_verification": {
-    "boot_test_performed": false,
-    "local_certificate_bundled": false,
-    "legacy_driver_bundled": false,
     "fresh_built_application_embedded": true,
+    "boot_test_performed": false,
+    "legacy_driver_bundled": false,
     "driver_authenticode_valid": true,
-    "success": true,
-    "all_payload_hashes_match": true
+    "all_payload_hashes_match": true,
+    "local_certificate_bundled": false,
+    "success": true
   },
-  "legacy_identity_preflight": {
-    "legacy_upgrade_identity_validation": "pass",
-    "format": 1,
-    "driver_hash": "61E949C6F1E25DCE05F5471EAABC5782E0BDCA92C0EF897C92FC4CA52D06B494",
-    "host_changes_performed": false
+  "source_cleanup": {
+    "authored_comments_removed": 9,
+    "authored_prose_files_removed": [
+      "README.md",
+      "docs/VALIDATION.md"
+    ],
+    "csharp_tokens_unchanged": true,
+    "required_legal_notices_preserved": true
   },
+  "runtime_identity": [
+    {
+      "name": "DPI.exe",
+      "sha256": "73463dd35d6ac40f1fc547dd3271e7091051b611ef19f0f4a105e840047bd0e7",
+      "identical_to_safety_candidate": true
+    },
+    {
+      "name": "Launch.exe",
+      "sha256": "6b7cd35cedcb357f4659179827eaf9219025681b6b1bd9a11b5dcd9f5fdba973",
+      "identical_to_safety_candidate": true
+    },
+    {
+      "name": "Uninstall.exe",
+      "sha256": "a22d377e293c305cb564b947ba258f1538ddcbbec25343a85a69b9312b509abd",
+      "identical_to_safety_candidate": true
+    },
+    {
+      "name": "rawaccel.sys",
+      "sha256": "8a62c4deef2774b43a7363b352eda79897533a1080c9c26ffeff0559e43358d7",
+      "identical_to_safety_candidate": true
+    },
+    {
+      "name": "wrapper.dll",
+      "sha256": "e17d540fb0bb5e47ba7c8e01aff39f1570bfb7ef673a1ddc0bccd2a26f9efb78",
+      "identical_to_safety_candidate": true
+    },
+    {
+      "name": "Newtonsoft.Json.dll",
+      "sha256": "b624949df8b0e3a6153fdfb730a7c6f4990b6592ee0d922e1788433d276610f3",
+      "identical_to_safety_candidate": true
+    }
+  ],
+  "source_rebuild_identical_package": true,
   "physical_input_measurement_verified": false,
   "clean_install_security_off_boot_verified": false,
   "isolated_upgrade_remove_boot_verified": false,
   "host_driver_installed": false,
   "host_boot_settings_changed": false,
-  "package_sha256": "df56416233e90e810cae1c177601bc11b7ae7cd4b565b63044990b3a412f6709"
+  "limitations": [
+    {
+      "code": "CLEAN_INSTALL_SECURITY_OFF_BOOT_INPUT_UNVERIFIED",
+      "component_id": "rawaccel.sys",
+      "workflow_id": "install_boot_input",
+      "blocks_authorized_publication": false
+    },
+    {
+      "code": "PHYSICAL_MOUSE_SCALING_UNVERIFIED",
+      "component_id": "rawaccel.sys",
+      "workflow_id": "mouse_motion",
+      "blocks_authorized_publication": false
+    },
+    {
+      "code": "LEGACY_UPGRADE_AND_REMOVE_BOOT_UNVERIFIED",
+      "component_id": "DPI_Modifier_Setup.exe",
+      "workflow_id": "upgrade_remove_boot",
+      "blocks_authorized_publication": false
+    }
+  ],
+  "package_sha256": "5972800869c0e3f071df472db74278709884adb565a3875d4a3991db0a7dca41"
 }

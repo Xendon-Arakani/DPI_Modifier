@@ -1,8 +1,10 @@
-param([ValidatePattern('^[0-9A-Za-z][0-9A-Za-z.-]*$')][string]$Version = '0.2.0-safety.1')
+param([ValidatePattern('^[0-9A-Za-z][0-9A-Za-z.-]*$')][string]$Version = '0.2.0')
 $ErrorActionPreference = 'Stop'
 $projectRoot = $PSScriptRoot
 $outputRoot = Join-Path $projectRoot ('release\' + $Version)
 if (Test-Path -LiteralPath $outputRoot) { throw 'RELEASE_EXISTS' }
+$releaseStatus = Get-Content -LiteralPath (Join-Path $projectRoot 'release-status.json') -Raw | ConvertFrom-Json
+if ($releaseStatus.version -ne $Version) { throw 'RELEASE_VERSION_MISMATCH' }
 Push-Location $projectRoot
 try {
     $vendorRoot = Join-Path $projectRoot 'vendor\RawAccel-1.7.1'
@@ -55,10 +57,10 @@ try {
     Copy-Item -LiteralPath 'tests\artifacts\safety\safety-tests.json','tests\artifacts\safety\source-audit.json' -Destination $evidence
     $builds | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $evidence 'build-tests.json') -Encoding UTF8
     @{success=$true;fresh_built_application_embedded=$true;all_payload_hashes_match=$true;driver_authenticode_valid=$true;legacy_driver_bundled=$false;local_certificate_bundled=$false;boot_test_performed=$false} | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $evidence 'package-tests.json') -Encoding UTF8
-    foreach ($name in @('requirements.json','dependencies.json','provenance.json','release-status.json','README.md')) { Copy-Item -LiteralPath $name -Destination (Join-Path $outputRoot $name) }
+    foreach ($name in @('requirements.json','dependencies.json','provenance.json','release-status.json')) { Copy-Item -LiteralPath $name -Destination (Join-Path $outputRoot $name) }
 
-    $sourceFiles = @('.gitignore','.gitattributes','global.json','Directory.Build.props','Build-Release.ps1','requirements.json','dependencies.json','provenance.json','release-status.json','README.md')
-    $sourceFiles += @(Get-ChildItem -LiteralPath 'src','vendor\RawAccel-1.7.1','docs','tests\SafetyTests' -File -Recurse | Where-Object { $_.FullName -notmatch '\\(bin|obj|Payload)\\' } | ForEach-Object { $_.FullName.Substring($projectRoot.Length+1) })
+    $sourceFiles = @('.gitignore','.gitattributes','global.json','Directory.Build.props','Build-Release.ps1','requirements.json','dependencies.json','provenance.json','release-status.json')
+    $sourceFiles += @(Get-ChildItem -LiteralPath 'src','vendor\RawAccel-1.7.1','tests\SafetyTests' -File -Recurse | Where-Object { $_.FullName -notmatch '\\(bin|obj|Payload)\\' } | ForEach-Object { $_.FullName.Substring($projectRoot.Length+1) })
     $sourceFiles += 'tests\Run-Tests.ps1'
     $sourceRoot = Join-Path $outputRoot 'source'
     foreach ($relative in $sourceFiles) {
@@ -84,8 +86,8 @@ try {
     $sourceZip = Join-Path $outputRoot ('DPI_Modifier-' + $Version + '-source.zip')
     Write-FixedZip $sourceZip $sourceRoot $sourceFiles
     $package = Join-Path $outputRoot ('DPI_Modifier-' + $Version + '-windows-x64.zip')
-    Write-FixedZip $package $outputRoot @('DPI_Modifier_Setup.exe','DPI_Modifier_Setup.exe.config','requirements.json','dependencies.json','provenance.json','release-status.json','README.md')
+    Write-FixedZip $package $outputRoot @('DPI_Modifier_Setup.exe','DPI_Modifier_Setup.exe.config','requirements.json','dependencies.json','provenance.json','release-status.json')
     $inventory = @(Get-ChildItem -LiteralPath $outputRoot -File -Recurse | ForEach-Object { [ordered]@{path=$_.FullName.Substring($outputRoot.Length+1).Replace('\','/');sha256=(Get-FileHash -LiteralPath $_.FullName).Hash.ToLowerInvariant();bytes=$_.Length} })
     $inventory | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $outputRoot 'hashes.json') -Encoding UTF8
-    [ordered]@{version=$Version;installer=$installer;package=$package;source=$sourceZip;downloads_locked=$true;boot_test_performed=$false} | ConvertTo-Json
+    [ordered]@{version=$Version;installer=$installer;package=$package;source=$sourceZip;downloads_locked=$releaseStatus.downloads_locked;publish_allowed=$releaseStatus.publish_allowed;boot_test_performed=$false} | ConvertTo-Json
 } finally { Pop-Location }

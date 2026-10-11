@@ -11,6 +11,7 @@ try {
     foreach ($source in $sources) {
         $text = Get-Content -LiteralPath $source.FullName -Raw
         if ($text -match '(?i)bcdedit|SetTestMode|AddRoot\s*\(|Store\.Add\s*\(') { throw ('BOOT_OR_CERTIFICATE_MUTATION_FOUND: ' + $source.Name) }
+        if ($text -match '(?m)^\s*(//|/\*)') { throw ('AUTHORED_COMMENT_FOUND: ' + $source.Name) }
     }
     $vendorManifest = Get-Content -LiteralPath 'vendor\RawAccel-1.7.1\manifest.json' -Raw | ConvertFrom-Json
     foreach ($entry in $vendorManifest.files.PSObject.Properties) {

@@ -87,7 +87,7 @@ internal static class Install
             {
                 uninstallAdded = true;
                 uninstall.SetValue("DisplayName", "DPI Modifier");
-                uninstall.SetValue("DisplayVersion", "0.2.0-safety.1");
+                uninstall.SetValue("DisplayVersion", "0.2.0");
                 uninstall.SetValue("InstallLocation", Layout.Root);
                 uninstall.SetValue("DisplayIcon", Layout.ApplicationPath + ",0");
                 uninstall.SetValue("UninstallString", "\"" + Layout.RemovalPath + "\"");
@@ -102,7 +102,7 @@ internal static class Install
             Action<Action> attempt = action => { try { action(); } catch (Exception e) { cleanupErrors.Add(e.Message); } };
             bool detached = !filterAdded;
             if (filterAdded) attempt(() => { Layout.SetFilters(Layout.RemoveFilter(Layout.Filters())); detached = true; });
-            // If detach fails, keep the verified service/file so input can still load.
+
             if (detached && serviceCreated) attempt(() => Registry.LocalMachine.DeleteSubKeyTree(Layout.Service, false));
             if (detached && driverWritten) attempt(() => File.Delete(driver));
             if (runAdded) attempt(() => { using var run = Layout.OpenRun(userSid, true); run.DeleteValue("DPI_Modifier", false); });

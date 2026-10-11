@@ -45,8 +45,8 @@ internal static class Removal
             string driver = Path.Combine(Layout.Drivers, record.DriverName);
             if (File.Exists(driver))
             {
-                // A loaded driver must remain in place until the next boot; rename
-                // its file so a new install cannot be deleted by an old queued path.
+
+
                 string retired = driver + ".removed-" + Guid.NewGuid().ToString("N");
                 File.Move(driver, retired);
                 Platform.QueueDelete(retired);
@@ -73,6 +73,6 @@ internal static class Removal
         }
         File.Delete(Layout.RecordPath);
         if (Directory.GetFileSystemEntries(Layout.Root).Length == 0) Directory.Delete(Layout.Root);
-        // Do not queue the installation directory: a reinstall before reboot must survive.
+
     }
 }
