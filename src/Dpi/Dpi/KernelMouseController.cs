@@ -43,7 +43,7 @@ internal sealed class KernelMouseController : IDisposable
     {
         lock (gate)
         {
-            InputRejected = baseline < 1 || baseline > 9999 || target < 1 || target > baseline * 2;
+            InputRejected = !GameDpiSettings.IsMouseDpiValid(baseline) || !GameDpiSettings.IsOutputDpiValid(target);
             if (InputRejected || disposed) { LastError = InputRejected ? 87 : 6; return false; }
             try
             {

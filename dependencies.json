@@ -1,7 +1,7 @@
 [
   {
     "id": "DPI_Modifier",
-    "version": "0.2.0",
+    "version": "0.4.0",
     "license": "LicenseRef-UserOwned",
     "scope": "application",
     "bundled": true,

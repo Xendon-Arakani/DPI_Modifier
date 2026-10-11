@@ -1,16 +1,9 @@
 {
-  "version": "0.2.0",
-  "release_stage": "ready",
-  "publish_allowed": true,
-  "downloads_locked": false,
-  "human_authorized_publication": true,
-  "human_functional_test": {
-    "status": "pass_reported",
-    "evidence_kind": "human_message",
-    "source_thread_id": "01a10966-d19d-7ef1-ba60-bf0dd4e57acd",
-    "message_id": "01a12934-9da4-7051-aa93-08f9a372c61e",
-    "exact_tested_package_hash_confirmed": false
-  },
+  "version": "0.4.0",
+  "release_stage": "progress",
+  "publish_allowed": false,
+  "downloads_locked": true,
+  "human_authorized_publication": false,
   "automated_tests": {
     "success": true,
     "tests": [
@@ -155,6 +148,14 @@
         "status": "pass"
       },
       {
+        "name": "hardware_3200_output_1600_supported",
+        "status": "pass"
+      },
+      {
+        "name": "hardware_dpi_independent_of_output_supports_downscale_and_upscale",
+        "status": "pass"
+      },
+      {
         "name": "restore_exact_original_configuration",
         "status": "pass"
       },
@@ -211,6 +212,42 @@
         "status": "pass"
       },
       {
+        "name": "manual_random_selectable_base_1_within_800_and_never_zero",
+        "status": "pass"
+      },
+      {
+        "name": "manual_random_selectable_base_400_within_800_and_never_zero",
+        "status": "pass"
+      },
+      {
+        "name": "manual_random_selectable_base_800_within_800_and_never_zero",
+        "status": "pass"
+      },
+      {
+        "name": "manual_random_selectable_base_1600_within_800_and_never_zero",
+        "status": "pass"
+      },
+      {
+        "name": "manual_random_selectable_base_2400_within_800_and_never_zero",
+        "status": "pass"
+      },
+      {
+        "name": "manual_random_selectable_base_9999_within_800_and_never_zero",
+        "status": "pass"
+      },
+      {
+        "name": "driver_profile_math_before_packet_quantization",
+        "status": "pass"
+      },
+      {
+        "name": "high_hardware_dpi_profile_48000_valid_and_scaled",
+        "status": "pass"
+      },
+      {
+        "name": "high_hardware_dpi_profile_65535_valid_and_scaled",
+        "status": "pass"
+      },
+      {
         "name": "approved_driver_hash_and_microsoft_signature_trusted",
         "status": "pass"
       },
@@ -243,6 +280,138 @@
         "status": "pass"
       },
       {
+        "name": "legacy_settings_keep_normal_game_sensitivity",
+        "status": "pass"
+      },
+      {
+        "name": "selectable_base_calibrates_normal_mouse_dpi",
+        "status": "pass"
+      },
+      {
+        "name": "random_mode_accepts_base_other_than_1600",
+        "status": "pass"
+      },
+      {
+        "name": "random_base_is_editable_and_resets_to_selected_output",
+        "status": "pass"
+      },
+      {
+        "name": "sequence_mode_still_available_after_base_edit",
+        "status": "pass"
+      },
+      {
+        "name": "switch_to_random_mode_starts_at_base",
+        "status": "pass"
+      },
+      {
+        "name": "manual_button_works_without_hotkey_and_timer_is_disabled",
+        "status": "pass"
+      },
+      {
+        "name": "random_mode_cannot_advance_automatically_even_with_old_auto_setting",
+        "status": "pass"
+      },
+      {
+        "name": "one_button_click_applies_one_random_dpi",
+        "status": "pass"
+      },
+      {
+        "name": "failed_random_write_preserves_current_dpi",
+        "status": "pass"
+      },
+      {
+        "name": "random_mode_rejects_out_of_range_before_io",
+        "status": "pass"
+      },
+      {
+        "name": "random_mode_cannot_bypass_range_with_override",
+        "status": "pass"
+      },
+      {
+        "name": "random_reset_returns_to_1600",
+        "status": "pass"
+      },
+      {
+        "name": "random_mode_and_dpi_are_persisted",
+        "status": "pass"
+      },
+      {
+        "name": "original_sequence_and_auto_setting_survive_random_mode",
+        "status": "pass"
+      },
+      {
+        "name": "half_game_setting_doubles_mouse_and_output_without_added_downscale",
+        "status": "pass"
+      },
+      {
+        "name": "sequence_values_double_for_half_game_sensitivity",
+        "status": "pass"
+      },
+      {
+        "name": "override_uses_game_adjusted_output",
+        "status": "pass"
+      },
+      {
+        "name": "random_base_is_one_to_one_with_half_game_setting",
+        "status": "pass"
+      },
+      {
+        "name": "random_range_doubles_for_half_game_sensitivity",
+        "status": "pass"
+      },
+      {
+        "name": "random_reset_returns_to_game_adjusted_base",
+        "status": "pass"
+      },
+      {
+        "name": "quarter_game_setting_uses_6400_mouse_and_output_for_1600_base",
+        "status": "pass"
+      },
+      {
+        "name": "quarter_game_random_endpoints_are_3200_and_9600",
+        "status": "pass"
+      },
+      {
+        "name": "quarter_game_reset_is_6400",
+        "status": "pass"
+      },
+      {
+        "name": "invalid_game_setting_rejected_before_io",
+        "status": "pass"
+      },
+      {
+        "name": "failed_game_setting_write_preserves_previous_setting",
+        "status": "pass"
+      },
+      {
+        "name": "base_and_game_setting_persist",
+        "status": "pass"
+      },
+      {
+        "name": "game_setting_save_failure_rolls_back_driver_and_setting",
+        "status": "pass"
+      },
+      {
+        "name": "base_save_failure_rolls_back_output_and_driver",
+        "status": "pass"
+      },
+      {
+        "name": "random_save_failure_rolls_back_to_previous_game_adjusted_output",
+        "status": "pass"
+      },
+      {
+        "name": "pass_through_restores_original_configuration",
+        "status": "pass"
+      },
+      {
+        "name": "pass_through_disables_timer_button_and_random_changes",
+        "status": "pass"
+      },
+      {
+        "name": "game_setting_in_pass_through_does_not_write_to_driver",
+        "status": "pass"
+      },
+      {
         "name": "graceful_exit_restores_before_dispose",
         "status": "pass"
       }
@@ -252,85 +421,24 @@
   },
   "source_audit": {
     "vendor_hashes_verified": true,
+    "success": true,
     "no_boot_policy_mutation": true,
-    "no_new_root_certificate_trust": true,
-    "success": true
+    "no_new_root_certificate_trust": true
   },
   "package_verification": {
-    "fresh_built_application_embedded": true,
-    "boot_test_performed": false,
-    "legacy_driver_bundled": false,
-    "driver_authenticode_valid": true,
     "all_payload_hashes_match": true,
-    "local_certificate_bundled": false,
-    "success": true
+    "driver_authenticode_valid": true,
+    "legacy_driver_bundled": false,
+    "fresh_built_application_embedded": true,
+    "success": true,
+    "boot_test_performed": false,
+    "local_certificate_bundled": false
   },
-  "source_cleanup": {
-    "authored_comments_removed": 9,
-    "authored_prose_files_removed": [
-      "README.md",
-      "docs/VALIDATION.md"
-    ],
-    "csharp_tokens_unchanged": true,
-    "required_legal_notices_preserved": true
-  },
-  "runtime_identity": [
-    {
-      "name": "DPI.exe",
-      "sha256": "73463dd35d6ac40f1fc547dd3271e7091051b611ef19f0f4a105e840047bd0e7",
-      "identical_to_safety_candidate": true
-    },
-    {
-      "name": "Launch.exe",
-      "sha256": "6b7cd35cedcb357f4659179827eaf9219025681b6b1bd9a11b5dcd9f5fdba973",
-      "identical_to_safety_candidate": true
-    },
-    {
-      "name": "Uninstall.exe",
-      "sha256": "a22d377e293c305cb564b947ba258f1538ddcbbec25343a85a69b9312b509abd",
-      "identical_to_safety_candidate": true
-    },
-    {
-      "name": "rawaccel.sys",
-      "sha256": "8a62c4deef2774b43a7363b352eda79897533a1080c9c26ffeff0559e43358d7",
-      "identical_to_safety_candidate": true
-    },
-    {
-      "name": "wrapper.dll",
-      "sha256": "e17d540fb0bb5e47ba7c8e01aff39f1570bfb7ef673a1ddc0bccd2a26f9efb78",
-      "identical_to_safety_candidate": true
-    },
-    {
-      "name": "Newtonsoft.Json.dll",
-      "sha256": "b624949df8b0e3a6153fdfb730a7c6f4990b6592ee0d922e1788433d276610f3",
-      "identical_to_safety_candidate": true
-    }
-  ],
-  "source_rebuild_identical_package": true,
-  "physical_input_measurement_verified": false,
+  "local_app_file_update_verified": true,
+  "normal_mouse_path_after_filter_disable_verified": true,
+  "game_sensitivity_modes_simulation_verified": true,
+  "latency_measured": false,
   "clean_install_security_off_boot_verified": false,
-  "isolated_upgrade_remove_boot_verified": false,
-  "host_driver_installed": false,
-  "host_boot_settings_changed": false,
-  "limitations": [
-    {
-      "code": "CLEAN_INSTALL_SECURITY_OFF_BOOT_INPUT_UNVERIFIED",
-      "component_id": "rawaccel.sys",
-      "workflow_id": "install_boot_input",
-      "blocks_authorized_publication": false
-    },
-    {
-      "code": "PHYSICAL_MOUSE_SCALING_UNVERIFIED",
-      "component_id": "rawaccel.sys",
-      "workflow_id": "mouse_motion",
-      "blocks_authorized_publication": false
-    },
-    {
-      "code": "LEGACY_UPGRADE_AND_REMOVE_BOOT_UNVERIFIED",
-      "component_id": "DPI_Modifier_Setup.exe",
-      "workflow_id": "upgrade_remove_boot",
-      "blocks_authorized_publication": false
-    }
-  ],
-  "package_sha256": "5972800869c0e3f071df472db74278709884adb565a3875d4a3991db0a7dca41"
+  "physical_scaling_measurement_verified": false,
+  "package_sha256": "ed451abb40b9c8142ffd839fd1611b4ce350d6bc7b6560c09e5b9c5ef037f14f"
 }

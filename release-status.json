@@ -1,8 +1,8 @@
 {
-  "version": "0.2.0",
-  "release_stage": "ready",
-  "downloads_locked": false,
-  "publish_allowed": true,
+  "version": "0.4.0",
+  "release_stage": "progress",
+  "downloads_locked": true,
+  "publish_allowed": false,
   "source_push_allowed": true,
   "test_signing_required": false,
   "security_settings_changed": false,
@@ -29,12 +29,12 @@
   ],
   "fresh_install_verified": false,
   "physical_input_verified": false,
-  "host_driver_installed_during_development": false,
+  "host_driver_installed_during_development": true,
   "system_restart_performed": false,
-  "presentation_ready": true,
-  "human_authorized_publication": true,
+  "presentation_ready": false,
+  "human_authorized_publication": false,
   "human_functional_test": {
-    "status": "pass_reported",
+    "status": "not_tested_for_this_version",
     "evidence_kind": "human_message",
     "source_thread_id": "01a10966-d19d-7ef1-ba60-bf0dd4e57acd",
     "message_id": "01a12934-9da4-7051-aa93-08f9a372c61e",
@@ -43,5 +43,10 @@
   "clean_install_security_off_boot_verified": false,
   "physical_scaling_measurement_verified": false,
   "legacy_upgrade_and_remove_boot_verified": false,
-  "publication_basis": "HUMAN_FUNCTIONAL_TEST_AND_EXPLICIT_PUBLICATION_AUTHORIZATION"
+  "publication_basis": "LOCAL_GAME_SENSITIVITY_MODE_DEVELOPMENT",
+  "local_upgrade_verified": false,
+  "local_manual_button_and_reset_verified": false,
+  "game_sensitivity_and_pass_through_simulation_verified": true,
+  "normal_mouse_path_after_filter_disable_verified": true,
+  "latency_measured": false
 }

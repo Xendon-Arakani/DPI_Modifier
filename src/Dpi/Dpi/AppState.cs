@@ -15,6 +15,10 @@ public sealed class AppState
 
 	public int BaseDpi = 1600;
 
+	public int GameDpiFactor = 1;
+
+	public bool PassThrough;
+
 	public int LowerRangeDpi = 550;
 
 	public int UpperRangeDpi = 550;
@@ -26,6 +30,10 @@ public sealed class AppState
 	public bool Automatic = true;
 
 	public bool EnablePlus = true;
+
+	public bool RandomManualMode;
+
+	public int RandomDpi = 1600;
 
 #if DEBUG
 	public static string StatePath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "DPI.next", "state.json");

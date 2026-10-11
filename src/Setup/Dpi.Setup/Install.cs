@@ -87,7 +87,7 @@ internal static class Install
             {
                 uninstallAdded = true;
                 uninstall.SetValue("DisplayName", "DPI Modifier");
-                uninstall.SetValue("DisplayVersion", "0.2.0");
+                uninstall.SetValue("DisplayVersion", "0.4.0");
                 uninstall.SetValue("InstallLocation", Layout.Root);
                 uninstall.SetValue("DisplayIcon", Layout.ApplicationPath + ",0");
                 uninstall.SetValue("UninstallString", "\"" + Layout.RemovalPath + "\"");

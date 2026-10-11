@@ -1,4 +1,4 @@
-param([ValidatePattern('^[0-9A-Za-z][0-9A-Za-z.-]*$')][string]$Version = '0.2.0')
+param([ValidatePattern('^[0-9A-Za-z][0-9A-Za-z.-]*$')][string]$Version = '0.4.0')
 $ErrorActionPreference = 'Stop'
 $projectRoot = $PSScriptRoot
 $outputRoot = Join-Path $projectRoot ('release\' + $Version)

@@ -11,13 +11,13 @@
   },
   {
     "path": "Build-Release.ps1",
-    "sha256": "b28af37dc26c69927feb0233b2e294177738c69552986d11c9e15eb9276ecb01",
+    "sha256": "afd287791b17c773628fcfffc8f0ad3e74a21727d8cc049400c7736e74efc44f",
     "bytes": 7892
   },
   {
     "path": "dependencies.json",
-    "sha256": "b6030a71e6d910f0951a942f742d8a3d3bb458adcad1be803d5139cd831735f5",
-    "bytes": 1338
+    "sha256": "143ac0b5c02544050395a1f1e4bbcc1b6bd7660dfafc2099ec588a8123b01ec1",
+    "bytes": 1389
   },
   {
     "path": "Directory.Build.props",
@@ -36,8 +36,8 @@
   },
   {
     "path": "release-status.json",
-    "sha256": "25c8c011446b15f985ee77c527e1775435cc32d0816c68ae4ffd08333061234b",
-    "bytes": 1614
+    "sha256": "64826dec9cba29ddb0316d04a58e015bfb52d5b93da673bb789cb4984ea9a174",
+    "bytes": 1902
   },
   {
     "path": "requirements.json",
@@ -70,14 +70,9 @@
     "bytes": 35588
   },
   {
-    "path": "src/Dpi/packages.lock.json",
-    "sha256": "145e4eedb53e2f5e0fa9e666a9748c09f4ecbc4c73ff5269a111a678a8edaa1c",
-    "bytes": 745
-  },
-  {
     "path": "src/Dpi/Dpi/AppState.cs",
-    "sha256": "89830cb3f7c4bfd4b3caaf1b3bcca342a2358f64f9ec41e81897a6194a702d53",
-    "bytes": 1921
+    "sha256": "0a40370ff57169aad67480919217e390b2bbad6479abb8cd708b349dad75e8af",
+    "bytes": 2043
   },
   {
     "path": "src/Dpi/Dpi/CountdownOverlay.cs",
@@ -90,14 +85,24 @@
     "bytes": 1279
   },
   {
+    "path": "src/Dpi/Dpi/GameDpiSettings.cs",
+    "sha256": "5956409a24635b3559c5552bc634b639eafae023b216a2eb53aabf8f7592adff",
+    "bytes": 529
+  },
+  {
     "path": "src/Dpi/Dpi/KernelMouseController.cs",
-    "sha256": "f418e0cdc9550833624d68fc2f81ae66b06563bcdc726d7addb3befe3580e95c",
-    "bytes": 2577
+    "sha256": "2a7e5cd7f3b1224f3de0fedab3d7f5057640f2d23e19ae127fdbe9ec36846bcf",
+    "bytes": 2594
   },
   {
     "path": "src/Dpi/Dpi/MainForm.cs",
-    "sha256": "2000f90ec8928898a37afca1674c9ab9e2f85595a2549b76266d418e8b81c0cb",
-    "bytes": 25103
+    "sha256": "990b53bfe03c57db3689986d2c4c980fd97882c5a7655c9628a5d07216d31ff8",
+    "bytes": 34897
+  },
+  {
+    "path": "src/Dpi/Dpi/ManualRandomSource.cs",
+    "sha256": "82e2358a7615be8155632deb8ec919f0a12e91e2876df6fac60c6260e7f141fb",
+    "bytes": 770
   },
   {
     "path": "src/Dpi/Dpi/Program.cs",
@@ -120,6 +125,11 @@
     "bytes": 2254
   },
   {
+    "path": "src/Dpi/packages.lock.json",
+    "sha256": "145e4eedb53e2f5e0fa9e666a9748c09f4ecbc4c73ff5269a111a678a8edaa1c",
+    "bytes": 745
+  },
+  {
     "path": "src/Dpi/Properties/AssemblyInfo.cs",
     "sha256": "345393879af4a9722fad0903197a1f173434cfa284ff43029ef1f2c9e5eff416",
     "bytes": 104
@@ -130,6 +140,11 @@
     "bytes": 603
   },
   {
+    "path": "src/Launch/Dpi.Setup/Launch.cs",
+    "sha256": "d1e5352db63219e8a40578aa0af85bd8d20967adfdb7f7e2abf369bf77218f73",
+    "bytes": 577
+  },
+  {
     "path": "src/Launch/Launch.csproj",
     "sha256": "fda21b07751ecc2980c77f6a5e50832f9771cf7a25795efe7c0238dff34bf859",
     "bytes": 548
@@ -138,11 +153,6 @@
     "path": "src/Launch/packages.lock.json",
     "sha256": "145e4eedb53e2f5e0fa9e666a9748c09f4ecbc4c73ff5269a111a678a8edaa1c",
     "bytes": 745
-  },
-  {
-    "path": "src/Launch/Dpi.Setup/Launch.cs",
-    "sha256": "d1e5352db63219e8a40578aa0af85bd8d20967adfdb7f7e2abf369bf77218f73",
-    "bytes": 577
   },
   {
     "path": "src/Launch/Properties/AssemblyInfo.cs",
@@ -165,13 +175,8 @@
     "bytes": 999
   },
   {
-    "path": "src/Setup/packages.lock.json",
-    "sha256": "145e4eedb53e2f5e0fa9e666a9748c09f4ecbc4c73ff5269a111a678a8edaa1c",
-    "bytes": 745
-  },
-  {
     "path": "src/Setup/Dpi.Setup/Install.cs",
-    "sha256": "f8f537b76bfc036f91447c79924ccc11c9e87b0d3b538704f338a9a8c1dd6807",
+    "sha256": "3f4a5623d35a550f3ba5dece1a527d78f679968773ffd78a16da31f8dffbdabd",
     "bytes": 7425
   },
   {
@@ -193,6 +198,11 @@
     "path": "src/Setup/Dpi.Setup/SetupForm.cs",
     "sha256": "67d5cfced37d13cb7df42f93bdd9bb867a4cf02cb79f0934395d911e78f7d784",
     "bytes": 4745
+  },
+  {
+    "path": "src/Setup/packages.lock.json",
+    "sha256": "145e4eedb53e2f5e0fa9e666a9748c09f4ecbc4c73ff5269a111a678a8edaa1c",
+    "bytes": 745
   },
   {
     "path": "src/Setup/Properties/AssemblyInfo.cs",
@@ -235,16 +245,6 @@
     "bytes": 603
   },
   {
-    "path": "src/Uninstall/packages.lock.json",
-    "sha256": "145e4eedb53e2f5e0fa9e666a9748c09f4ecbc4c73ff5269a111a678a8edaa1c",
-    "bytes": 745
-  },
-  {
-    "path": "src/Uninstall/Uninstall.csproj",
-    "sha256": "bcac6d716a56a21f5d693e77e2dced2ff363a1c9a2eac6c90617a8f972e98731",
-    "bytes": 860
-  },
-  {
     "path": "src/Uninstall/Dpi.Setup/MainEntry.cs",
     "sha256": "5aef58d7c8db2cae7a7c07542b7adbbf0641d81c0d0e8d89aa3109ca3b6c62b4",
     "bytes": 1187
@@ -260,9 +260,19 @@
     "bytes": 4528
   },
   {
+    "path": "src/Uninstall/packages.lock.json",
+    "sha256": "145e4eedb53e2f5e0fa9e666a9748c09f4ecbc4c73ff5269a111a678a8edaa1c",
+    "bytes": 745
+  },
+  {
     "path": "src/Uninstall/Properties/AssemblyInfo.cs",
     "sha256": "345393879af4a9722fad0903197a1f173434cfa284ff43029ef1f2c9e5eff416",
     "bytes": 104
+  },
+  {
+    "path": "src/Uninstall/Uninstall.csproj",
+    "sha256": "bcac6d716a56a21f5d693e77e2dced2ff363a1c9a2eac6c90617a8f972e98731",
+    "bytes": 860
   },
   {
     "path": "tests/Run-Tests.ps1",
@@ -276,8 +286,8 @@
   },
   {
     "path": "tests/SafetyTests/Program.cs",
-    "sha256": "95ef7c198cdd68cfde373895b68c87a3128ede11a69e602bdcca45e458070d00",
-    "bytes": 10192
+    "sha256": "d47013af97b85a0a8bb375f410fd785a68ab5fbe476871eda6ffa2ee04adf2f2",
+    "bytes": 21638
   },
   {
     "path": "tests/SafetyTests/SafetyTests.csproj",
